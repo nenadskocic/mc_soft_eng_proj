@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Neonato</string>
+
+    <string name="btn_close">Close</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="username">Username</string>
+    <string name="usernamelabel">UsernameLabel</string>
+</resources>
