@@ -54,6 +54,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        android:onClick="Login"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

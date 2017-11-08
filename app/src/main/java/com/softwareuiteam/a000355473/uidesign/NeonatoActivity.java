@@ -17,4 +17,10 @@ public class NeonatoActivity extends AppCompatActivity {
         startActivity(new Intent(NeonatoActivity.this, RegisterActivity.class));
         this.finish();
     }
+
+    public void Login(View v){
+        //database validation in here
+        startActivity(new Intent(NeonatoActivity.this, DrawerBaseActivity.class));
+        this.finish();
+    }
 }
