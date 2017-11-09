@@ -32,4 +32,7 @@
     <string name="menu">menu</string>
     <string name="title_activity_calendar">CalendarActivity</string>
     <string name="title_activity_bar">barActivity</string>
+    <string name="projects">list</string>
+    <string name="add_new_patient">Add New Patient</string>
+    <string name="update_selected">Update Selected</string>
 </resources>

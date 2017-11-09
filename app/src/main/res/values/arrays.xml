@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="layers_array" >
-        <item>a</item>
-        <item>b</item>
-        <item>c</item>
+        <item>Profile</item>
+        <item>Milestone</item>
+        <item>Development</item>
+        <item>Create Health Journal</item>
+        <item>Read Health Journal</item>
+        <item>Calendar</item>
+        <item>ICU Tour</item>
+        <item>Log out</item>
     </string-array>
 
 </resources>

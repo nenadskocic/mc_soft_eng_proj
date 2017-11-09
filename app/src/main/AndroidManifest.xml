@@ -23,18 +23,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity
-            android:name=".DrawerBaseActivity"
-            android:label="@string/title_activity_drawer_base"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".CalendarActivity"
-            android:label="@string/title_activity_calendar"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".barActivity"
-            android:label="@string/title_activity_bar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DrawerActivity" />
+        <activity android:name=".PatientProfileActivity" />
+        <activity android:name=".CalendarViewActivity" />
+        <activity android:name=".CreateJournalActivity"></activity>
     </application>
 
 </manifest>

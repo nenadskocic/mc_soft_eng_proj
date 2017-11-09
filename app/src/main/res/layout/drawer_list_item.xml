@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/text1"
-        style="?android:attr/maxItemsPerRow"
-        android:singleLine="true"
-        android:textColor="#ffffff"
-        android:textAlignment="center"
-        android:textSize="40dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="20dp"
 
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/text1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="marquee" />
+        android:layout_height="52dp"
+        android:background="?android:attr/activatedBackgroundIndicator"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="#fff"
+        tools:layout_editor_absoluteY="-4dp"
+        tools:ignore="MissingConstraints" />
+
 </android.support.constraint.ConstraintLayout>
