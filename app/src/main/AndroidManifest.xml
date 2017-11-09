@@ -26,7 +26,11 @@
         <activity android:name=".DrawerActivity" />
         <activity android:name=".PatientProfileActivity" />
         <activity android:name=".CalendarViewActivity" />
-        <activity android:name=".CreateJournalActivity"></activity>
+        <activity android:name=".CreateJournalActivity" />
+        <activity
+            android:name=".JournalActivity"
+            android:label="@string/title_activity_journal"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
