@@ -35,4 +35,6 @@
     <string name="projects">list</string>
     <string name="add_new_patient">Add New Patient</string>
     <string name="update_selected">Update Selected</string>
+    <string name="title_activity_journal">JournalActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
