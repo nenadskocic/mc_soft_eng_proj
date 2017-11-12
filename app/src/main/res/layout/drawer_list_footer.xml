@@ -18,7 +18,6 @@
         android:textColor="?android:attr/textColorPrimaryInverse"
         android:textStyle="bold"
         android:textAllCaps="true"
-        android:text="@string/projects"
         android:textSize="12sp" />
 
     <TextView

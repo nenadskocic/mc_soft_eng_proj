@@ -1,11 +1,13 @@
 package com.softwareuiteam.a000355473.uidesign;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewStub;
+import android.widget.CalendarView;
 
-public class CalendarViewActivity extends DrawerActivity {
+public class CalendarViewActivity extends DrawerActivity implements CalendarView.OnDateChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,5 +17,22 @@ public class CalendarViewActivity extends DrawerActivity {
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_calendar);
         View inflated = stub.inflate();
+
+        CalendarView calendar = (CalendarView) findViewById(R.id.calendarView);
+        calendar.setOnDateChangeListener(this);
+    }
+
+
+    @Override
+    public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+//        TextView testText = (TextView) findViewById(R.id.testDateSelect);
+//        testText.setText("" + year + "/" + month + "/" + dayOfMonth);
+
+        Intent intent = new Intent(this, EventsActivity.class);
+        String dateString = "" + year + "/" + month + "/" + dayOfMonth;
+
+        intent.putExtra("date", dateString);
+
+        startActivity(intent);
     }
 }
