@@ -3,11 +3,15 @@ package com.softwareuiteam.a000355473.uidesign;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
-public class CalendarViewActivity extends DrawerActivity implements CalendarView.OnDateChangeListener {
+public class CalendarViewActivity extends DrawerActivity implements CalendarView.OnDateChangeListener{
+
+    View inflated = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +20,13 @@ public class CalendarViewActivity extends DrawerActivity implements CalendarView
         super.onCreateDrawer();
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_calendar);
-        View inflated = stub.inflate();
+        inflated = stub.inflate();
 
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarView);
         calendar.setOnDateChangeListener(this);
+
+
+
     }
 
 
@@ -34,5 +41,17 @@ public class CalendarViewActivity extends DrawerActivity implements CalendarView
         intent.putExtra("date", dateString);
 
         startActivity(intent);
+    }
+
+
+    public void linkToMaster(View view) {
+        final Snackbar snackbar = Snackbar.make(inflated, "TEST", Snackbar.LENGTH_SHORT);
+        snackbar.setAction("Dismiss", new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+            }
+        });
+        snackbar.show();
     }
 }

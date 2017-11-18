@@ -1,22 +1,25 @@
 package com.softwareuiteam.a000355473.uidesign;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewStub;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class EventsActivity extends DrawerActivity {
 
+
+    String [] titles = {"Test", "test", "test"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_test);
+        //setContentView(R.layout.activity_events);
 
         super.onCreateDrawer();
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
-        stub.setLayoutResource(R.layout.activity_test);
+        stub.setLayoutResource(R.layout.activity_events);
         View inflated = stub.inflate();
 
         Intent intent = getIntent();
@@ -24,8 +27,14 @@ public class EventsActivity extends DrawerActivity {
 
 
         TextView text = (TextView) findViewById(R.id.textView3);
-        text.setText(date);
+        text.setText("Events for: " + date);
 
+
+        ListView listView = (ListView) findViewById(R.id.events);
+
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, titles);
+
+        listView.setAdapter(adapter);
 
     }
 }
