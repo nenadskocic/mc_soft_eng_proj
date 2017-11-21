@@ -45,7 +45,7 @@ public class CalendarViewActivity extends DrawerActivity implements CalendarView
 
 
     public void linkToMaster(View view) {
-        final Snackbar snackbar = Snackbar.make(inflated, "TEST", Snackbar.LENGTH_SHORT);
+        final Snackbar snackbar = Snackbar.make(inflated, "TEST", Snackbar.LENGTH_LONG);
         snackbar.setAction("Dismiss", new View.OnClickListener(){
             @Override
             public void onClick(View v) {

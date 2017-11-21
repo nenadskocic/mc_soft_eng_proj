@@ -26,7 +26,7 @@ public class EventsActivity extends DrawerActivity {
         String date = intent.getStringExtra("date");
 
 
-        TextView text = (TextView) findViewById(R.id.textView3);
+        TextView text = (TextView) findViewById(R.id.txtDate);
         text.setText("Events for: " + date);
 
 
