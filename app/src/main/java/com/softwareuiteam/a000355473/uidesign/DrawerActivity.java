@@ -71,7 +71,7 @@ public class DrawerActivity extends AppCompatActivity {
                     case 3:
                         break;
                     case 4:
-                        startActivity(new Intent(DrawerActivity.this, CreateJournalActivity.class));
+                        /*startActivity(new Intent(DrawerActivity.this, CreateJournalActivity.class));*/
                         break;
                     case 5:
                         startActivity(new Intent(DrawerActivity.this, JournalActivity.class));
