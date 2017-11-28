@@ -1,11 +1,17 @@
 package com.softwareuiteam.a000355473.uidesign;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.ViewStub;
+import android.widget.CalendarView;
+import android.widget.Toast;
 
-public class CalendarViewActivity extends DrawerActivity {
+public class CalendarViewActivity extends DrawerActivity implements CalendarView.OnDateChangeListener{
+
+    View inflated = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +20,38 @@ public class CalendarViewActivity extends DrawerActivity {
         super.onCreateDrawer();
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_calendar);
-        View inflated = stub.inflate();
+        inflated = stub.inflate();
+
+        CalendarView calendar = (CalendarView) findViewById(R.id.calendarView);
+        calendar.setOnDateChangeListener(this);
+
+
+
+    }
+
+
+    @Override
+    public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+//        TextView testText = (TextView) findViewById(R.id.testDateSelect);
+//        testText.setText("" + year + "/" + month + "/" + dayOfMonth);
+
+        Intent intent = new Intent(this, EventsActivity.class);
+        String dateString = "" + year + "/" + month + "/" + dayOfMonth;
+
+        intent.putExtra("date", dateString);
+
+        startActivity(intent);
+    }
+
+
+    public void linkToMaster(View view) {
+        final Snackbar snackbar = Snackbar.make(inflated, "TEST", Snackbar.LENGTH_LONG);
+        snackbar.setAction("Dismiss", new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+            }
+        });
+        snackbar.show();
     }
 }

@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Neonato</string>
+    <string name="app_name">Neonatal</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="copyright_2017">Copyright-2017</string>
-    <string name="Neanato_App">Neonato App</string>
+    <string name="Neanato_App">Neonatal App</string>
     <string name="emailSample">Yourname@Gmail.com</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>

@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/softwareengineering.iml" filepath="$PROJECT_DIR$/softwareengineering.iml" />
-      <module fileurl="file://D:\softwareengineering\softwareengineering.iml" filepath="D:\softwareengineering\softwareengineering.iml" />
-      <module fileurl="file://D:\group5engineering\softwareengineering\softwareengineering.iml" filepath="D:\group5engineering\softwareengineering\softwareengineering.iml" />
     </modules>
   </component>
 </project>

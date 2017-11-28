@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/calendarLayout"
     tools:context="com.softwareuiteam.a000355473.uidesign.CalendarViewActivity">
 
     <CalendarView
@@ -28,6 +29,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="22dp"
         android:text="Link to master calendar"
+        android:onClick="linkToMaster"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
@@ -37,18 +39,21 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="259dp"
+        android:layout_height="68dp"
         android:layout_marginBottom="19dp"
         android:layout_marginEnd="107dp"
         android:layout_marginStart="103dp"
         android:layout_marginTop="114dp"
         android:text="Calendar"
+        android:textAlignment="center"
         android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
