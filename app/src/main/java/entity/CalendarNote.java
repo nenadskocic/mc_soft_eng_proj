@@ -1,5 +1,6 @@
 package entity;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
@@ -11,4 +12,23 @@ import android.arch.persistence.room.PrimaryKey;
 public class CalendarNote {
     @PrimaryKey(autoGenerate = true)
     private int calendarNoteId;
+
+    @ColumnInfo(name="bodyText")
+    private String bodyText;
+
+    public int getCalendarNoteId() {
+        return calendarNoteId;
+    }
+
+    public void setCalendarNoteId(int calendarNoteId) {
+        this.calendarNoteId = calendarNoteId;
+    }
+
+    public String getBodyText() {
+        return bodyText;
+    }
+
+    public void setBodyText(String bodyText) {
+        this.bodyText = bodyText;
+    }
 }

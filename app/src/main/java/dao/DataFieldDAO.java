@@ -8,23 +8,23 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import entity.Person;
+import entity.DataField;
 
 /**
- * Created by Maurice on 11/30/2017.
+ * Created by Maurice on 12/6/2017.
  */
 
 @Dao
-public interface PersonDAO {
-    @Query("SELECT * FROM Person")
-    List<Person> getAll();
+public interface DataFieldDAO {
+    @Query("SELECT * FROM DataField")
+    List<DataField> getAll();
 
     @Insert
-    void insertAll(List<Person> people);
+    void insertAll(List<DataField> dataFields);
 
     @Update
-    void update(Person person);
+    void update(DataField dataField);
 
     @Delete
-    void delete(Person person);
+    void delete(DataField dataField);
 }

@@ -16,8 +16,16 @@ public class Person {
     @ColumnInfo(name = "firstName")
     private String firstName;
 
-    public int getPersonId()
-    {
+    @ColumnInfo(name="lastName")
+    private String lastName;
+
+    @ColumnInfo(name="phone")
+    private String phone;
+
+    @ColumnInfo(name="email")
+    private String email;
+
+    public int getPersonId() {
         return personId;
     }
 
@@ -25,13 +33,35 @@ public class Person {
         this.personId = personId;
     }
 
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName)
-    {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

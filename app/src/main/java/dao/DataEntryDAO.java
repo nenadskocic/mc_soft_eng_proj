@@ -8,23 +8,23 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import entity.Person;
+import entity.DataEntry;
 
 /**
- * Created by Maurice on 11/30/2017.
+ * Created by Maurice on 12/6/2017.
  */
 
 @Dao
-public interface PersonDAO {
-    @Query("SELECT * FROM Person")
-    List<Person> getAll();
+public interface DataEntryDAO {
+    @Query("SELECT * FROM DataEntry")
+    List<DataEntry> getAll();
 
     @Insert
-    void insertAll(List<Person> people);
+    void insertAll(List<DataEntry> dataEntries);
 
     @Update
-    void update(Person person);
+    void update(DataEntry dataEntry);
 
     @Delete
-    void delete(Person person);
+    void delete(DataEntry dataEntry);
 }

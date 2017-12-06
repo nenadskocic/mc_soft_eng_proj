@@ -8,23 +8,23 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import entity.Person;
+import entity.Notification;
 
 /**
- * Created by Maurice on 11/30/2017.
+ * Created by Maurice on 12/6/2017.
  */
 
 @Dao
-public interface PersonDAO {
-    @Query("SELECT * FROM Person")
-    List<Person> getAll();
+public interface NotificationDAO {
+    @Query("SELECT * FROM Notification")
+    List<Notification> getAll();
 
     @Insert
-    void insertAll(List<Person> people);
+    void insertAll(List<Notification> notifications);
 
     @Update
-    void update(Person person);
+    void update(Notification notification);
 
     @Delete
-    void delete(Person person);
+    void delete(Notification notification);
 }

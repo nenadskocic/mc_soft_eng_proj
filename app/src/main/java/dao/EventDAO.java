@@ -8,23 +8,23 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import entity.Person;
+import entity.Event;
 
 /**
- * Created by Maurice on 11/30/2017.
+ * Created by Maurice on 12/6/2017.
  */
 
 @Dao
-public interface PersonDAO {
-    @Query("SELECT * FROM Person")
-    List<Person> getAll();
+public interface EventDAO {
+    @Query("SELECT * FROM Event")
+    List<Event> getAll();
 
     @Insert
-    void insertAll(List<Person> people);
+    void insertAll(List<Event> events);
 
     @Update
-    void update(Person person);
+    void update(Event event);
 
     @Delete
-    void delete(Person person);
+    void delete(Event event);
 }
