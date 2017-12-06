@@ -20,7 +20,7 @@ public class NeonatoActivity extends AppCompatActivity {
                                 AppDatabase.class,
                                 "NEONATAL_DB").build();
 
-        List<User> products = database.get().getDB().productDao().getAll();
+        //List<User> products = database.get().getDB().productDao().getAll();
     }
 
     public void Register(View v){
