@@ -14,6 +14,7 @@ import entity.GeneralEvent;
  * Created by Maurice on 12/6/2017.
  */
 
+@Dao
 public interface GeneralEventDAO {
     @Query("SELECT * FROM GeneralEvent")
     List<GeneralEvent> getAll();
