@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.List;
+
 import database.AppDatabase;
+import entity.User;
 
 public class NeonatoActivity extends AppCompatActivity {
 
@@ -20,7 +23,7 @@ public class NeonatoActivity extends AppCompatActivity {
                                 AppDatabase.class,
                                 "NEONATAL_DB").build();
 
-        //List<User> products = database.get().getDB().productDao().getAll();
+        //List<User> users = database.get().getDB().UserDAO().getAll();
     }
 
     public void Register(View v){
