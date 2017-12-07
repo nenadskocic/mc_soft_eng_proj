@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mybutton"
     tools:context="com.softwareuiteam.a000355473.uidesign.RegisterActivity">
 
     <EditText
@@ -14,9 +15,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="73dp"
         android:ems="10"
+        android:hint="@string/emailSample"
         android:inputType="textEmailAddress"
         android:text=""
-        android:hint="@string/emailSample"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,10 +31,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        android:text=""
         android:hint="@string/minimum_6_digit"
+        android:inputType="textPassword"
+        android:text=""
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -56,14 +57,14 @@
     <EditText
         android:id="@+id/editText4"
         android:layout_width="match_parent"
-        android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
+        android:hint="@string/last_name"
         android:inputType="textPersonName"
         android:text=""
-        android:hint="@string/last_name"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/editText5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -72,14 +73,14 @@
         android:id="@+id/editText5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_marginBottom="22dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
+        android:hint="@string/phone"
         android:inputType="textPersonName"
         android:text=""
-        android:hint="@string/phone"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -91,10 +92,11 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:background="@drawable/mybutton"
         android:text="@string/register"
         app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -104,9 +106,10 @@
         android:layout_marginBottom="82dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:background="@drawable/mybutton"
+        android:onClick="Register"
         android:text="@string/back_to_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="Register"
         app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

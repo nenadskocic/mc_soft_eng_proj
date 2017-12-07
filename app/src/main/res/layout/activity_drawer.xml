@@ -11,8 +11,17 @@
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybutton">
         <!-- Put what you want as your normal screen in here, you can also choose for a linear layout or any other layout, whatever you prefer -->
+
+        <ViewStub
+            android:id="@+id/layout_stub"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.75"
+            android:inflatedId="@+id/message_layout" />
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
@@ -20,13 +29,6 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
-
-        <ViewStub
-            android:id="@+id/layout_stub"
-            android:inflatedId="@+id/message_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.75" />
 
     </FrameLayout>
     <!-- The navigation drawer -->

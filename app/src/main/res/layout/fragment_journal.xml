@@ -4,6 +4,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mybutton"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     tools:context="com.softwareuiteam.a000355473.uidesign.JournalActivity$PlaceholderFragment">
 
