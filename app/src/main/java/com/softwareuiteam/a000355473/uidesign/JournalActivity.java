@@ -1,5 +1,6 @@
 package com.softwareuiteam.a000355473.uidesign;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -57,15 +58,22 @@ public class JournalActivity extends DrawerActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fbtn = (FloatingActionButton) findViewById(R.id.addnew);
+        fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));;
             }
         });
 
+        //read the data base and retrieve data from here
+        fbtn =  (FloatingActionButton) findViewById(R.id.edit);
+        fbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));;
+            }
+        });
     }
 
 

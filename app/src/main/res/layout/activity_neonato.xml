@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.softwareuiteam.a000355473.uidesign.NeonatoActivity"
-    >
+    android:background="@drawable/mybutton"
+    tools:context="com.softwareuiteam.a000355473.uidesign.NeonatoActivity">
 
     <EditText
         android:id="@+id/txt_Username"
@@ -51,26 +50,28 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:background="@drawable/mybutton"
+        android:onClick="Login"
         android:text="@string/login"
         android:textSize="@dimen/lblSize"
         app:layout_constraintBottom_toTopOf="@+id/btn_Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        android:onClick="Login"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_Register"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_marginBottom="29dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:background="@drawable/mybutton"
+        android:onClick="Register"
         android:text="@string/register"
         android:textSize="@dimen/lblSize"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="Register"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -80,8 +81,8 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="163dp"
         android:layout_marginStart="163dp"
-        android:textSize="@dimen/footerSize"
         android:text="@string/copyright_2017"
+        android:textSize="@dimen/footerSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -90,18 +91,18 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
         android:layout_marginEnd="163dp"
         android:layout_marginStart="163dp"
         android:layout_marginTop="10dp"
-        android:text="@string/Neanato_App"
-        android:textSize="40sp"
         android:fontFamily="serif-monospace"
+        android:text="@string/Neanato_App"
         android:textAlignment="center"
+        android:textSize="40sp"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toTopOf="@+id/txt_Username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:fontFamily="monospace" />
 </android.support.constraint.ConstraintLayout>
