@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    tools:context="com.softwareuiteam.a000355473.uidesign.JournalActivity">
+    tools:context="com.neonatal.app.src.JournalActivity">
 
     <!--<android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

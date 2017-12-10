@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/mybutton"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    tools:context="com.softwareuiteam.a000355473.uidesign.JournalActivity$PlaceholderFragment">
+    tools:context="com.neonatal.app.src.JournalActivity$PlaceholderFragment">
 
     <TextView
         android:id="@+id/section_label"

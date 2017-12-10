@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:background="@drawable/mybutton"
-    tools:context="com.softwareuiteam.a000355473.uidesign.CalendarViewActivity">
+    tools:context="com.neonatal.app.src.CalendarViewActivity">
 
     <CalendarView
         android:id="@+id/calendarView"

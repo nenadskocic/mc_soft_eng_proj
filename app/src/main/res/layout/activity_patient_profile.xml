@@ -7,7 +7,7 @@
     android:background="@drawable/mybutton"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     android:visibility="visible"
-    tools:context="com.softwareuiteam.a000355473.uidesign.PatientProfileActivity">
+    tools:context="com.neonatal.app.src.PatientProfileActivity">
 
     <EditText
         android:id="@+id/editText6"
