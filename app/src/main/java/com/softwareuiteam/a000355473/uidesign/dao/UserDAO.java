@@ -1,4 +1,4 @@
-package dao;
+package com.softwareuiteam.a000355473.uidesign.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -8,23 +8,23 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import entity.DataField;
+import com.softwareuiteam.a000355473.uidesign.entity.User;
 
 /**
  * Created by Maurice on 12/6/2017.
  */
 
 @Dao
-public interface DataFieldDAO {
-    @Query("SELECT * FROM DataField")
-    List<DataField> getAll();
+public interface UserDAO {
+    @Query("SELECT * FROM User")
+    List<User> getAll();
 
     @Insert
-    void insertAll(List<DataField> dataFields);
+    void insertAll(List<User> users);
 
     @Update
-    void update(DataField dataField);
+    void update(User user);
 
     @Delete
-    void delete(DataField dataField);
+    void delete(User user);
 }

@@ -8,8 +8,7 @@ import android.view.View;
 
 import java.util.List;
 
-import database.AppDatabase;
-import entity.User;
+import com.softwareuiteam.a000355473.uidesign.database.AppDatabase;
 
 public class NeonatoActivity extends AppCompatActivity {
 
@@ -23,7 +22,7 @@ public class NeonatoActivity extends AppCompatActivity {
                                 AppDatabase.class,
                                 "NEONATAL_DB").build();
 
-        //List<User> users = database.get().getDB().UserDAO().getAll();
+        //List<User> users = com.softwareuiteam.a000355473.uidesign.database.get().getDB().UserDAO().getAll();
     }
 
     public void Register(View v){
@@ -32,7 +31,7 @@ public class NeonatoActivity extends AppCompatActivity {
     }
 
     public void Login(View v){
-        //database validation in here
+        //com.softwareuiteam.a000355473.uidesign.database validation in here
         startActivity(new Intent(NeonatoActivity.this, PatientProfileActivity.class));
         this.finish();
     }

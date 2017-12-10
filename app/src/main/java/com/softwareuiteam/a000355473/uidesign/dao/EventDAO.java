@@ -1,4 +1,4 @@
-package dao;
+package com.softwareuiteam.a000355473.uidesign.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -8,23 +8,23 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import entity.User;
+import com.softwareuiteam.a000355473.uidesign.entity.Event;
 
 /**
  * Created by Maurice on 12/6/2017.
  */
 
 @Dao
-public interface UserDAO {
-    @Query("SELECT * FROM User")
-    List<User> getAll();
+public interface EventDAO {
+    @Query("SELECT * FROM Event")
+    List<Event> getAll();
 
     @Insert
-    void insertAll(List<User> users);
+    void insertAll(List<Event> events);
 
     @Update
-    void update(User user);
+    void update(Event event);
 
     @Delete
-    void delete(User user);
+    void delete(Event event);
 }

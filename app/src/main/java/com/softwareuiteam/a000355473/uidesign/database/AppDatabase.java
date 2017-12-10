@@ -1,10 +1,10 @@
-package database;
+package com.softwareuiteam.a000355473.uidesign.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import dao.*;
-import entity.*;
+import com.softwareuiteam.a000355473.uidesign.dao.*;
+import com.softwareuiteam.a000355473.uidesign.entity.*;
 
 /**
  * Created by Maurice on 11/30/2017.

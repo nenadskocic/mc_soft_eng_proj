@@ -1,4 +1,4 @@
-package entity;
+package com.softwareuiteam.a000355473.uidesign.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

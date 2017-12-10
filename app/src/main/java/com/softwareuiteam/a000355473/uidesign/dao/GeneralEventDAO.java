@@ -1,4 +1,4 @@
-package dao;
+package com.softwareuiteam.a000355473.uidesign.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -8,7 +8,7 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import entity.GeneralEvent;
+import com.softwareuiteam.a000355473.uidesign.entity.GeneralEvent;
 
 /**
  * Created by Maurice on 12/6/2017.
