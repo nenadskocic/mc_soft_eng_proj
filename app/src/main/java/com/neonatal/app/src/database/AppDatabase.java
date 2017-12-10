@@ -1,10 +1,10 @@
-package com.softwareuiteam.a000355473.uidesign.database;
+package com.neonatal.app.src.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import com.softwareuiteam.a000355473.uidesign.dao.*;
-import com.softwareuiteam.a000355473.uidesign.entity.*;
+import com.neonatal.app.src.dao.*;
+import com.neonatal.app.src.entity.*;
 
 /**
  * Created by Maurice on 11/30/2017.
