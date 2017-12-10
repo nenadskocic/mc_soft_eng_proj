@@ -1,6 +1,5 @@
-package com.softwareuiteam.a000355473.uidesign;
+package com.neonatal.app.src;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewStub;

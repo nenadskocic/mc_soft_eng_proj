@@ -1,10 +1,9 @@
-package com.softwareuiteam.a000355473.uidesign;
+package com.neonatal.app.src;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.support.annotation.LayoutRes;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;

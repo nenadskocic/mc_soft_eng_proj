@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/mybutton"
     android:layout_marginTop="70dp"
-    tools:context="com.softwareuiteam.a000355473.uidesign.CreateJournalActivity">
+    tools:context="com.neonatal.app.src.CreateJournalActivity">
 
     <EditText
         android:id="@+id/editText8"

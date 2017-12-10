@@ -1,4 +1,4 @@
-package com.softwareuiteam.a000355473.uidesign;
+package com.neonatal.app.src;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.view.View;
 
 import java.util.List;
 
-import com.softwareuiteam.a000355473.uidesign.database.AppDatabase;
+import com.neonatal.app.src.database.AppDatabase;
 
 public class NeonatoActivity extends AppCompatActivity {
 
