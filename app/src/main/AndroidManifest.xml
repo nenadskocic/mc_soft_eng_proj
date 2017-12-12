@@ -15,23 +15,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.neonatal.app.src.NeonatoActivity">
+        <activity android:name=".NeonatoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.neonatal.app.src.RegisterActivity" />
-        <activity android:name="com.neonatal.app.src.DrawerActivity" />
-        <activity android:name="com.neonatal.app.src.PatientProfileActivity" />
-        <activity android:name="com.neonatal.app.src.CalendarViewActivity" />
-        <activity android:name="com.neonatal.app.src.CreateJournalActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".DrawerActivity" />
+        <activity android:name=".PatientProfileActivity" />
+        <activity android:name=".CalendarViewActivity" />
+        <activity android:name=".CreateJournalActivity" />
         <activity
-            android:name="com.neonatal.app.src.JournalActivity"
+            android:name=".JournalActivity"
             android:label="@string/title_activity_journal"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.neonatal.app.src.EventsActivity"></activity>
+        <activity android:name=".EventsActivity" />
+        <activity android:name=".EquipmentActivity"></activity>
     </application>
 
 </manifest>

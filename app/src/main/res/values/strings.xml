@@ -37,4 +37,38 @@
     <string name="update_selected">Update Selected</string>
     <string name="title_activity_journal">JournalActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="equip_name">ICU Equipment</string>
+
+    <string-array name="equipmentArr">
+        <item>A</item>
+        <item>B</item>
+        <item>Cardiopulmonary Monitor</item>
+        <item>Central Venous Catheter</item>
+        <item>Continuous Positive Airway Pressure</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>Incubator</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>Nasogastric Tube</item>
+        <item>O</item>
+        <item>Peripheral Intravenous Catheter</item>
+        <item>Phototherapy</item>
+        <item>Pulse Oximeter</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>Umbilical Catheter</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
 </resources>

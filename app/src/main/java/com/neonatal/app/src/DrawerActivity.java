@@ -80,6 +80,11 @@ public class DrawerActivity extends AppCompatActivity {
                         break;
                     case 7:
                         break;
+                    case 8:
+                        startActivity(new Intent(DrawerActivity.this, EquipmentActivity.class));
+                        break;
+                    case 9:
+                        break;
                     default:
                         startActivity(new Intent(DrawerActivity.this, NeonatoActivity.class));
                         break;
