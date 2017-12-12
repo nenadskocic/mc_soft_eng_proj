@@ -50,7 +50,7 @@ public class CreateJournalActivity extends DrawerActivity {
         }
     }
 
-    public void imgCamaraAccess(View view) {
+    public void imgCameraAccess(View view) {
 
     }
 

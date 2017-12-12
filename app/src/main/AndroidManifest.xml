@@ -23,7 +23,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NeonatoActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,7 +40,9 @@
             android:label="@string/title_activity_journal"
             android:theme="@style/AppTheme" />
         <activity android:name=".EventsActivity" />
-        <activity android:name=".MainMenuActivity"></activity>
+        <activity android:name=".MainMenuActivity" />
+        <activity android:name=".PatientHistoryActivity" />
+        <activity android:name=".PatientMenuActivity"></activity>
     </application>
 
 </manifest>
