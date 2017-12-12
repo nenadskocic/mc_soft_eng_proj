@@ -37,4 +37,6 @@
     <string name="update_selected">Update Selected</string>
     <string name="title_activity_journal">JournalActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="newPatient">New Patient</string>
+    <string name="nicuVideo">NICU Virtual Tour</string>
 </resources>
