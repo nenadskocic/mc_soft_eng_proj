@@ -27,7 +27,10 @@ public class PatientMenuActivity extends AppCompatActivity {
     }
 
     public void ViewHistory(View v){
-        startActivity(new Intent(PatientMenuActivity.this, PatientHistoryActivity.class));
+        Intent childIntent = new Intent(PatientMenuActivity.this, PatientHistoryActivity.class);
+        childIntent.putExtra("patient_id", index);
+        childIntent.putExtra("patients", patients);
+        startActivity(childIntent);
     }
 
     public void ViewCalendar(View v){
@@ -35,9 +38,6 @@ public class PatientMenuActivity extends AppCompatActivity {
     }
 
     public void ViewJournal(View v){
-        Intent childIntent = new Intent(PatientMenuActivity.this, PatientHistoryActivity.class);
-        childIntent.putExtra("patient_id", index);
-        childIntent.putExtra("patients", patients);
-        startActivity(childIntent);
+        startActivity(new Intent(PatientMenuActivity.this, JournalActivity.class));
     }
 }

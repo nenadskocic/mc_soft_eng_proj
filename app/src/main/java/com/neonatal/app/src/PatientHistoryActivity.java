@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class PatientHistoryActivity extends AppCompatActivity {
-    //ArrayList<String> patient_history;
+    ArrayList<String> patient_history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,9 @@ public class PatientHistoryActivity extends AppCompatActivity {
 
         String testString = patients.get(index).toString();
 
-        //txtName.setText("Patient History: " + patients.get(index).toString());
+        txtName.setText("Patient History: " + patients.get(index).toString());
 
-        /*this.patient_history = new ArrayList<>();
+        this.patient_history = new ArrayList<>();
 
         this.patient_history.add("Appointment 1 - 2017/10/12");
         this.patient_history.add("Appointment 2 - 2017/10/24");
@@ -36,6 +36,6 @@ public class PatientHistoryActivity extends AppCompatActivity {
         ListView lstHistory = (ListView) findViewById(R.id.lstHistory);
 
         ArrayAdapter historyAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, this.patient_history);
-        lstHistory.setAdapter(historyAdapter);*/
+        lstHistory.setAdapter(historyAdapter);
     }
 }
