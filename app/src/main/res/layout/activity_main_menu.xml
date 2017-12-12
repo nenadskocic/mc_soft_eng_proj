@@ -15,12 +15,10 @@
         android:layout_marginStart="163dp"
         android:layout_marginTop="10dp"
         android:fontFamily="serif-monospace"
-        android:text="@string/Neanato_App"
+        android:text="@string/mainMenuTitle"
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"
-
-        app:layout_constraintBottom_toTopOf="@+id/txt_Username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -71,6 +69,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
+        android:id="@+id/listViewPatients"
         android:layout_width="match_parent"
         android:layout_height="340dp"
         android:layout_marginTop="16dp"
