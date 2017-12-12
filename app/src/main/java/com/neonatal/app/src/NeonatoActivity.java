@@ -32,7 +32,7 @@ public class NeonatoActivity extends AppCompatActivity {
 
     public void Login(View v){
         //com.softwareuiteam.a000355473.uidesign.database validation in here
-        startActivity(new Intent(NeonatoActivity.this, PatientProfileActivity.class));
+        startActivity(new Intent(NeonatoActivity.this, MainMenuActivity.class));
         this.finish();
     }
 }
