@@ -40,4 +40,8 @@
     <string name="newPatient">New Patient</string>
     <string name="nicuVideo">NICU Virtual Tour</string>
     <string name="mainMenuTitle">Neonatal App</string>
+    <string name="viewHistory">Patient History</string>
+    <string name="viewCalendar">Calendar</string>
+    <string name="viewJournal">Journal</string>
+    <string name="patientMenuTitle">Patient Name</string>
 </resources>

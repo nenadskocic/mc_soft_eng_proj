@@ -41,7 +41,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".EventsActivity" />
         <activity android:name=".MainMenuActivity" />
-        <activity android:name=".PatientActivity"></activity>
+        <activity android:name=".PatientHistoryActivity" />
+        <activity android:name=".PatientMenuActivity"></activity>
     </application>
 
 </manifest>

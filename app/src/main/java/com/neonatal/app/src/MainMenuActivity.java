@@ -35,14 +35,13 @@ public class MainMenuActivity extends AppCompatActivity implements ListView.OnIt
 
     public void NewPatient(View v){
         startActivity(new Intent(MainMenuActivity.this, PatientProfileActivity.class));
-        this.finish();
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (! (position > arrayPatients.size()))
         {
-            Intent displayIntent = new Intent(this, PatientActivity.class);
+            Intent displayIntent = new Intent(this, PatientMenuActivity.class);
             displayIntent.putExtra("patient_id", position);
             displayIntent.putExtra("patients", arrayPatients);
             startActivity(displayIntent);

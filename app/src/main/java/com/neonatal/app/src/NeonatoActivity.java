@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import java.util.List;
-
 import com.neonatal.app.src.database.AppDatabase;
 
 public class NeonatoActivity extends AppCompatActivity {
