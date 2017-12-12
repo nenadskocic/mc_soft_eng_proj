@@ -8,12 +8,12 @@ import android.view.View;
 
 import com.neonatal.app.src.database.AppDatabase;
 
-public class NeonatoActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_neonato);
+        setContentView(R.layout.activity_login);
 
         AppDatabase database = Room.databaseBuilder(
                                 getApplicationContext(),
@@ -24,13 +24,13 @@ public class NeonatoActivity extends AppCompatActivity {
     }
 
     public void Register(View v){
-        startActivity(new Intent(NeonatoActivity.this, RegisterActivity.class));
+        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         this.finish();
     }
 
     public void Login(View v){
         //com.softwareuiteam.a000355473.uidesign.database validation in here
-        startActivity(new Intent(NeonatoActivity.this, MainMenuActivity.class));
+        startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
         this.finish();
     }
 }
