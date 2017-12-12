@@ -25,8 +25,6 @@ public class CalendarViewActivity extends DrawerActivity implements CalendarView
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarView);
         calendar.setOnDateChangeListener(this);
 
-
-
     }
 
 

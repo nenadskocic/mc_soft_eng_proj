@@ -1,10 +1,13 @@
 package com.neonatal.app.src;
 
 import android.arch.persistence.room.Room;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -32,7 +35,28 @@ public class NeonatoActivity extends AppCompatActivity {
 
     public void Login(View v){
         //com.softwareuiteam.a000355473.uidesign.database validation in here
-        startActivity(new Intent(NeonatoActivity.this, PatientProfileActivity.class));
+        TextView userName =  (TextView) findViewById(R.id.txt_Username);
+        TextView Pwd =  (TextView) findViewById(R.id.txt_password);
+
+        String user = userName.getText().toString();
+        String password = Pwd.getText().toString();
+
+        if(user == "admin" && password == "admin")
+        {
+            startActivity(new Intent(NeonatoActivity.this, PatientProfileActivity.class));
+        }
+        else
+        {
+            Context context = getApplicationContext();
+            CharSequence text = "Wrong username/password";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
+            
+        }
+
         this.finish();
     }
 }
