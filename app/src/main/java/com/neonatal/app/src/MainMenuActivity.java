@@ -32,7 +32,6 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void NewPatient(View v){
-        //com.softwareuiteam.a000355473.uidesign.database validation in here
         startActivity(new Intent(MainMenuActivity.this, PatientProfileActivity.class));
         this.finish();
     }
