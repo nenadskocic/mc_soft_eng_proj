@@ -38,6 +38,23 @@
     <string name="title_activity_journal">JournalActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="equip_name">ICU Equipment</string>
+    <string name="image_description">Image description</string>
+    <string name="equip_cm_summary">Wires attached to your baby\'s chest are hooked up to a screen that
+        monitors your baby\'s heart rate, breathing rate, and oxygen in their blood.</string>
+    <string name="equip_cvc_summary">A type of IV that is in your baby\'s chest to give your baby fluids,
+        nutrients, or medications.</string>
+    <string name="equip_cpap_summary">A device that is put over your baby\'s nose to help them breathe.
+        It is also called "CPAP".</string>
+    <string name="equip_i_summary">A type of bed that is closed on all sides to keep your baby warm and safe.</string>
+    <string name="equip_nt_summary">A small tube that is put in your baby\'s nose or mouth and goes down into their
+        stomach. it helps to feed your baby breast milk or formula.</string>
+    <string name="equip_pic_summary">A type of IV that is in your baby\'s hand, foot, leg, or scalp to give your baby
+        fluids, nutrients, or medications.</string>
+    <string name="equip_p_summary">A type of light that is used to help break down bilirubin in your baby\'s blood</string>
+    <string name="equip_po_summary">A wire that is attached to your baby\'s foot or wrist to monitor the amount of oxygen
+        in their blood.</string>
+    <string name="equip_uc_summary">A type of IV that is in your baby\'s umbilical cord to give your baby fluids, nutrients
+        or medications.</string>
 
     <string-array name="equipmentArr">
         <item>A</item>

@@ -17,5 +17,16 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:contentDescription="image about the equipment" />
+        android:contentDescription="@string/image_description" />
+
+    <TextView
+        android:id="@+id/textViewEquip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="121dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:gravity="center"/>
+
 </RelativeLayout>
