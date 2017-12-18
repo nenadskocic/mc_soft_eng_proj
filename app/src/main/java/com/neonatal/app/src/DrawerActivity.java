@@ -16,6 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 
+import java.util.ArrayList;
+
 public class DrawerActivity extends AppCompatActivity {
 
     public DrawerLayout drawerLayout;
@@ -69,7 +71,12 @@ public class DrawerActivity extends AppCompatActivity {
                     case 2:
                         break;
                     case 3:
-                        startActivity(new Intent(DrawerActivity.this, PatientHistoryActivity.class));
+                        Intent intent = new Intent(DrawerActivity.this, PatientHistoryActivity.class);
+                        ArrayList<String> arrayPatients = new ArrayList<String>();
+                        arrayPatients.add("Susan Example");
+                        intent.putExtra("patient_id", 0);
+                        intent.putExtra("patients", arrayPatients);
+                        startActivity(intent);
                         break;
                     case 4:
                         startActivity(new Intent(DrawerActivity.this, CalendarViewActivity.class));
