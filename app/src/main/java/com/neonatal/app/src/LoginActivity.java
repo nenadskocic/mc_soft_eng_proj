@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if(user.equals("admin") && password.equals("admin"))
         {
-            startActivity(new Intent(LoginActivity.this, PatientProfileActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
             this.finish();
         }
         else
