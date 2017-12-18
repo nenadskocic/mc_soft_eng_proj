@@ -42,7 +42,9 @@
         <activity android:name=".EventsActivity" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".PatientHistoryActivity" />
-        <activity android:name=".PatientMenuActivity"></activity>
+        <activity android:name=".PatientMenuActivity"/>
+        <activity android:name=".EquipmentActivity"/>
+        <activity android:name=".EquipDetailActivity"/>
     </application>
 
 </manifest>
