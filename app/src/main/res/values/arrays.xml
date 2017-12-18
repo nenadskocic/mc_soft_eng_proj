@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="layers_array" >
-        <item>Profile</item>
-        <item>Milestone</item>
-        <item>Development</item>
-        <item>Create Health Journal</item>
-        <item>Read Health Journal</item>
+        <item>Patient List</item>
+        <item>NICU Tour</item>
+        <item>Patient History</item>
         <item>Calendar</item>
-        <item>ICU Tour</item>
-        <item>ICU Equipment</item>
+        <item>Journal</item>
+        <item>About</item>
+        <item>Help</item>
         <item>Log out</item>
     </string-array>
 
