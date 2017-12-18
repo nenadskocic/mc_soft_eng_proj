@@ -14,7 +14,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void Register(View v){
-        startActivity(new Intent(RegisterActivity.this, NeonatoActivity.class));
+        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         this.finish();
     }
 }

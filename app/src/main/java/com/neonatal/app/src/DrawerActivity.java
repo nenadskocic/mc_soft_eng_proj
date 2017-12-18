@@ -61,32 +61,32 @@ public class DrawerActivity extends AppCompatActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
+                //TODO: NAVIGATE BACK TO ROOT ACTIVITY (Main Menu/Login?) BEFORE OPENING NEW ONES
                 switch (pos){
                     case 1:
-                        startActivity(new Intent(DrawerActivity.this, PatientProfileActivity.class));
+                        startActivity(new Intent(DrawerActivity.this, MainMenuActivity.class));
                         break;
                     case 2:
                         break;
                     case 3:
+                        startActivity(new Intent(DrawerActivity.this, PatientHistoryActivity.class));
                         break;
                     case 4:
-                        startActivity(new Intent(DrawerActivity.this, CreateJournalActivity.class));
+                        startActivity(new Intent(DrawerActivity.this, CalendarViewActivity.class));
                         break;
                     case 5:
                         startActivity(new Intent(DrawerActivity.this, JournalActivity.class));
                         break;
                     case 6:
-                        startActivity(new Intent(DrawerActivity.this, CalendarViewActivity.class));
+                        startActivity(new Intent(DrawerActivity.this, EquipmentActivity.class));
                         break;
                     case 7:
                         break;
                     case 8:
-                        startActivity(new Intent(DrawerActivity.this, EquipmentActivity.class));
-                        break;
-                    case 9:
+                        startActivity(new Intent(DrawerActivity.this, LoginActivity.class));
                         break;
                     default:
-                        startActivity(new Intent(DrawerActivity.this, NeonatoActivity.class));
+                        startActivity(new Intent(DrawerActivity.this, LoginActivity.class));
                         break;
                 }
             }
