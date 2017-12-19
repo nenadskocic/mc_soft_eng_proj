@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="layers_array" >
-        <item>Patient List</item>
+        <item>My babies' list</item>
         <item>NICU Tour</item>
-        <item>Patient History</item>
+        <item>My babies' History</item>
         <item>Calendar</item>
         <item>Journal</item>
         <item>Equipment</item>
