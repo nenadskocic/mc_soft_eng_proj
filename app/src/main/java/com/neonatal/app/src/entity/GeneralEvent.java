@@ -11,7 +11,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "GeneralEvent")
 public class GeneralEvent {
     @PrimaryKey(autoGenerate = true)
-    private int generalEventId;
+    private int id;
 
     @ColumnInfo(name="location")
     private String location;
@@ -19,12 +19,12 @@ public class GeneralEvent {
     @ColumnInfo(name="description")
     private String description;
 
-    public int getGeneralEventId() {
-        return generalEventId;
+    public int getId() {
+        return id;
     }
 
-    public void setGeneralEventId(int generalEventId) {
-        this.generalEventId = generalEventId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLocation() {

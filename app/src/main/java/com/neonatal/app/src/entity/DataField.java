@@ -11,17 +11,17 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "DataField")
 public class DataField {
     @PrimaryKey(autoGenerate = true)
-    private int dataFieldId;
+    private int id;
 
     @ColumnInfo(name="description")
     private String description;
 
-    public int getDataFieldId() {
-        return dataFieldId;
+    public int getId() {
+        return id;
     }
 
-    public void setDataFieldId(int dataFieldId) {
-        this.dataFieldId = dataFieldId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescription() {

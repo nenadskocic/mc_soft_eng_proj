@@ -11,17 +11,17 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "CalendarNote")
 public class CalendarNote {
     @PrimaryKey(autoGenerate = true)
-    private int calendarNoteId;
+    private int id;
 
     @ColumnInfo(name="bodyText")
     private String bodyText;
 
-    public int getCalendarNoteId() {
-        return calendarNoteId;
+    public int getId() {
+        return id;
     }
 
-    public void setCalendarNoteId(int calendarNoteId) {
-        this.calendarNoteId = calendarNoteId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getBodyText() {
