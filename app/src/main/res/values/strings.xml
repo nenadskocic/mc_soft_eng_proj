@@ -37,13 +37,13 @@
     <string name="update_selected">Update Selected</string>
     <string name="title_activity_journal">JournalActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="newPatient">New Patient</string>
+    <string name="newPatient">New Baby</string>
     <string name="nicuVideo">NICU Virtual Tour</string>
     <string name="mainMenuTitle">Neonatal App</string>
-    <string name="viewHistory">Patient History</string>
+    <string name="viewHistory">Baby History</string>
     <string name="viewCalendar">Calendar</string>
     <string name="viewJournal">Journal</string>
-    <string name="patientMenuTitle">Patient Name</string>
+    <string name="patientMenuTitle">Baby Name</string>
     <string name="equip_name">ICU Equipment</string>
     <string name="image_description">Image description</string>
     <string name="equip_cm_summary">Wires attached to your baby\'s chest are hooked up to a screen that
