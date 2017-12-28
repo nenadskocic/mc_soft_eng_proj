@@ -1,7 +1,9 @@
 package com.neonatal.app.src.database;
 
 import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.content.Context;
 
 import com.neonatal.app.src.dao.*;
 import com.neonatal.app.src.entity.*;
@@ -26,6 +28,9 @@ import com.neonatal.app.src.entity.*;
         User.class
 }, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
+
+    private static AppDatabase INSTANCE;
+
     public abstract CalendarEventDAO calendarEventDAO();
     public abstract CalendarNoteDAO calendarNoteDAO();
     public abstract DataEntryDAO dataEntryDAO();
@@ -39,4 +44,19 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PatientDAO patientDAO();
     public abstract PersonDAO personDAO();
     public abstract UserDAO userDAO();
+
+    public static AppDatabase getAppDatabase(Context context) {
+        if (INSTANCE == null) {
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "neonatal-database")
+                    //TODO: Remove allowMainThreadQueries() and implement worker threads
+                    .allowMainThreadQueries()
+                    .build();
+        }
+        return INSTANCE;
+    }
+
+    public static void destroyInstance() {
+        INSTANCE = null;
+    }
+
 }
