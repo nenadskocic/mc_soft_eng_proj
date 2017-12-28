@@ -11,7 +11,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "CalendarEvent")
 public class CalendarEvent {
     @PrimaryKey(autoGenerate = true)
-    private int calendarEventId;
+    private int id;
 
     @ColumnInfo(name="personId")
     private int personId;
@@ -19,12 +19,12 @@ public class CalendarEvent {
     @ColumnInfo(name="eventId")
     private int eventId;
 
-    public int getCalendarEventId() {
-        return calendarEventId;
+    public int getId() {
+        return id;
     }
 
-    public void setCalendarEventId(int calendarEventId) {
-        this.calendarEventId = calendarEventId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPersonId() {

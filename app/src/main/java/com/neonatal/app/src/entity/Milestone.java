@@ -11,17 +11,17 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "Milestone")
 public class Milestone {
     @PrimaryKey(autoGenerate = true)
-    private int milestoneId;
+    private int id;
 
     @ColumnInfo(name="description")
     private String description;
 
-    public int getMilestoneId() {
-        return milestoneId;
+    public int getId() {
+        return id;
     }
 
-    public void setMilestoneId(int milestoneId) {
-        this.milestoneId = milestoneId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescription() {

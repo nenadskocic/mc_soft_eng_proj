@@ -11,7 +11,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "Notification")
 public class Notification {
     @PrimaryKey(autoGenerate = true)
-    private int notificationId;
+    private int id;
 
     @ColumnInfo(name="personId")
     private int personId;
@@ -31,12 +31,12 @@ public class Notification {
     @ColumnInfo(name="readTimestamp")
     private String readTimestamp;
 
-    public int getNotificationId() {
-        return notificationId;
+    public int getId() {
+        return id;
     }
 
-    public void setNotificationId(int notificationId) {
-        this.notificationId = notificationId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPersonId() {

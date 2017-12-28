@@ -11,7 +11,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "JournalEntry")
 public class JournalEntry {
     @PrimaryKey(autoGenerate = true)
-    private int journalEntryId;
+    private int id;
 
     @ColumnInfo(name="imagePath")
     private String imagePath;
@@ -22,12 +22,12 @@ public class JournalEntry {
     @ColumnInfo(name="milestoneId")
     private int milestoneId;
 
-    public int getJournalEntryId() {
-        return journalEntryId;
+    public int getId() {
+        return id;
     }
 
-    public void setJournalEntryId(int journalEntryId) {
-        this.journalEntryId = journalEntryId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getImagePath() {

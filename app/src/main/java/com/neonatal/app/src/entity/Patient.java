@@ -11,7 +11,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "Patient")
 public class Patient {
     @PrimaryKey(autoGenerate = true)
-    private int patientId;
+    private int id;
 
     @ColumnInfo(name="personId")
     private int personId;
@@ -19,12 +19,12 @@ public class Patient {
     @ColumnInfo(name="userId")
     private int userId;
 
-    public int getPatientId() {
-        return patientId;
+    public int getId() {
+        return id;
     }
 
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPersonId() {
