@@ -1,6 +1,5 @@
 package com.neonatal.app.src;
 
-import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.neonatal.app.src.database.AppDatabase;
+import com.neonatal.app.src.entity.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -18,12 +18,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        AppDatabase database = Room.databaseBuilder(
-                                getApplicationContext(),
-                                AppDatabase.class,
-                                "NEONATAL_DB").build();
+        AppDatabase db = AppDatabase.getAppDatabase(getApplicationContext());
 
-        //List<User> users = com.softwareuiteam.a000355473.uidesign.database.get().getDB().UserDAO().getAll();
+        populateWithTestData(db);
     }
 
     public void Register(View v){
@@ -31,16 +28,35 @@ public class LoginActivity extends AppCompatActivity {
         this.finish();
     }
 
+    private static User getUserByUsername(AppDatabase db, String username) {
+        return db.userDAO().getUserByUserName(username);
+    }
+
+    private static User addUser(final AppDatabase db, User user) {
+        db.userDAO().insertAll(user);
+        return user;
+    }
+
+    private static void populateWithTestData(AppDatabase db) {
+        User user = new User();
+        user.setUsername("admin");
+        user.setPassword("admin");
+        user.setPersonId(1);
+        addUser(db, user);
+    }
+
     public void Login(View v){
-        //com.softwareuiteam.a000355473.uidesign.database validation in here
+        TextView textView_username =  (TextView) findViewById(R.id.txt_Username);
+        TextView textView_password =  (TextView) findViewById(R.id.txt_password);
 
-        TextView userName =  (TextView) findViewById(R.id.txt_Username);
-        TextView Pwd =  (TextView) findViewById(R.id.txt_password);
+        String inputUsername = textView_username.getText().toString();
+        String inputPassword = textView_password.getText().toString();
 
-        String user = userName.getText().toString();
-        String password = Pwd.getText().toString();
+        AppDatabase db = AppDatabase.getAppDatabase(getApplicationContext());
 
-        if(user.equals("admin") && password.equals("admin"))
+        User user = getUserByUsername(db, inputUsername);
+
+        if(inputUsername.equals(user.getUsername()) && inputPassword.equals(user.getPassword()))
         {
             startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
             this.finish();

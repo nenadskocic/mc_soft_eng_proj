@@ -20,11 +20,14 @@ public interface UserDAO {
     List<User> getAll();
 
     @Insert
-    void insertAll(List<User> users);
+    void insertAll(User... users);
 
     @Update
     void update(User user);
 
     @Delete
     void delete(User user);
+
+    @Query("SELECT * FROM User WHERE username = :username LIMIT 1")
+    User getUserByUserName(String username);
 }
