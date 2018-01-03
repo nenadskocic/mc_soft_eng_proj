@@ -20,7 +20,7 @@ public interface MilestoneDAO {
     List<Milestone> getAll();
 
     @Insert
-    void insertAll(List<Milestone> milestones);
+    void insertAll(Milestone... milestones);
 
     @Update
     void update(Milestone milestone);
