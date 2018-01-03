@@ -57,6 +57,16 @@ public class LoginActivity extends AppCompatActivity {
         return milestones;
     }
 
+    private static Event addEvent(final AppDatabase db, Event event){
+        db.eventDAO().insertAll(event);
+        return event;
+    }
+
+    private static JournalEntry addJournalEntry (final AppDatabase db, JournalEntry journalEntry) {
+        db.journalEntryDAO().insertAll(journalEntry);
+        return journalEntry;
+    }
+
     private static void populateWithTestData(AppDatabase db) {
 
         //User
@@ -79,11 +89,13 @@ public class LoginActivity extends AppCompatActivity {
         event.setEventDateTime("2017-12-21 13:14:15");
         event.setEventType("journalEntry");
         event.setEventChildId(1);
+        addEvent(db, event);
 
         //Journal Entry
         JournalEntry journalEntry = new JournalEntry();
         journalEntry.setBodyText("Today Susan had her first breastfeeding!");
         journalEntry.setMilestoneId(1);
+        addJournalEntry(db, journalEntry);
 
         //Milestone
         String[] milestoneDescriptions = {

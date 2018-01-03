@@ -20,7 +20,7 @@ public interface GeneralEventDAO {
     List<GeneralEvent> getAll();
 
     @Insert
-    void insertAll(List<GeneralEvent> generalEvents);
+    void insertAll(GeneralEvent... generalEvents);
 
     @Update
     void update(GeneralEvent generalEvent);

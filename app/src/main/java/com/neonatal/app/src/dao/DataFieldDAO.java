@@ -20,7 +20,7 @@ public interface DataFieldDAO {
     List<DataField> getAll();
 
     @Insert
-    void insertAll(List<DataField> dataFields);
+    void insertAll(DataField... dataFields);
 
     @Update
     void update(DataField dataField);
