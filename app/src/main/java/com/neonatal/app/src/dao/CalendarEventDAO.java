@@ -20,7 +20,7 @@ public interface CalendarEventDAO {
     List<CalendarEvent> getAll();
 
     @Insert
-    void insertAll(List<CalendarEvent> calendarEvents);
+    void insertAll(CalendarEvent... calendarEvents);
 
     @Update
     void update(CalendarEvent calendarEvent);

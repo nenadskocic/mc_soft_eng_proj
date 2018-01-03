@@ -20,7 +20,7 @@ public interface JournalEntryDAO {
     List<JournalEntry> getAll();
 
     @Insert
-    void insertAll(List<JournalEntry> journalEntries);
+    void insertAll(JournalEntry... journalEntries);
 
     @Update
     void update(JournalEntry journalEntry);

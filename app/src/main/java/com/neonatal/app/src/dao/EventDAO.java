@@ -20,7 +20,7 @@ public interface EventDAO {
     List<Event> getAll();
 
     @Insert
-    void insertAll(List<Event> events);
+    void insertAll(Event... events);
 
     @Update
     void update(Event event);
