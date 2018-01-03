@@ -22,6 +22,9 @@ public interface PersonDAO {
     @Insert
     long[] insertAll(List<Person> people);
 
+    @Insert
+    long insertAll(Person people);
+
     @Update
     void update(Person person);
 

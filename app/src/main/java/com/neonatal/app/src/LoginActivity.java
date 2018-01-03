@@ -30,8 +30,8 @@ public class LoginActivity extends AppCompatActivity {
 
         populateWithTestData(db);
 
-        EditText editText = (EditText) findViewById(R.id.txt_Username);
-        editText.setText(getDatabasePath("neonatal-database").getAbsolutePath());
+        //EditText editText = (EditText) findViewById(R.id.txt_Username);
+        //editText.setText(getDatabasePath("neonatal-database").getAbsolutePath());
     }
 
     public void Register(View v){
