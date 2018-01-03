@@ -30,4 +30,8 @@ public class PatientProfileActivity extends DrawerActivity {
             radioButton.setChecked(false);
         }
     }
+
+    public void newPatient(View view) {
+
+    }
 }

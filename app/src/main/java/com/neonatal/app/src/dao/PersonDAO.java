@@ -20,7 +20,7 @@ public interface PersonDAO {
     List<Person> getAll();
 
     @Insert
-    void insertAll(List<Person> people);
+    long[] insertAll(List<Person> people);
 
     @Update
     void update(Person person);

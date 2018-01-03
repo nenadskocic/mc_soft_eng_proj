@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,9 @@ public class LoginActivity extends AppCompatActivity {
         AppDatabase db = AppDatabase.getAppDatabase(getApplicationContext());
 
         populateWithTestData(db);
+
+        EditText editText = (EditText) findViewById(R.id.txt_Username);
+        editText.setText(getDatabasePath("neonatal-database").getAbsolutePath());
     }
 
     public void Register(View v){
