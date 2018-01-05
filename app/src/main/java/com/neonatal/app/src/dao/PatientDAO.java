@@ -20,7 +20,7 @@ public interface PatientDAO {
     List<Patient> getAll();
 
     @Insert
-    void insertAll(List<Patient> patients);
+    void insertAll(Patient... patients);
 
     @Update
     void update(Patient patient);

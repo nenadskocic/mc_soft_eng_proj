@@ -20,7 +20,7 @@ public interface NotificationDAO {
     List<Notification> getAll();
 
     @Insert
-    void insertAll(List<Notification> notifications);
+    void insertAll(Notification... notifications);
 
     @Update
     void update(Notification notification);

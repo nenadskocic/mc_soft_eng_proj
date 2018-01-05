@@ -20,7 +20,7 @@ public interface CalendarNoteDAO {
     List<CalendarNote> getAll();
 
     @Insert
-    void insertAll(List<CalendarNote> calendarNotes);
+    void insertAll(CalendarNote... calendarNotes);
 
     @Update
     void update(CalendarNote calendarNote);
