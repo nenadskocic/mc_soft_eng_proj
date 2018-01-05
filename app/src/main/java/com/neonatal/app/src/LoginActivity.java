@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        app = (NeonatalApp) getApplicationContext();
+        app = ((NeonatalApp) getApplicationContext());
         db = AppDatabase.getAppDatabase(getApplicationContext());
 
         populateWithTestData(db);

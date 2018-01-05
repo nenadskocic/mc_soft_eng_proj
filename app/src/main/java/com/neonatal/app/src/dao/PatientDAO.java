@@ -20,11 +20,14 @@ public interface PatientDAO {
     List<Patient> getAll();
 
     @Insert
-    void insertAll(List<Patient> patients);
+    void insertAll(Patient... patients);
 
     @Update
     void update(Patient patient);
 
     @Delete
     void delete(Patient patient);
+
+    @Query("SELECT * FROM patient WHERE userId = :userId")
+    List<Patient> getByUserId(int userId);
 }
