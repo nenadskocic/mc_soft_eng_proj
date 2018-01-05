@@ -19,7 +19,7 @@ import java.util.List;
 public class RegisterActivity extends AppCompatActivity {
 
     Dictionary<String, EditText> inputs = new Hashtable<>();
-    List<Person> persons = null;
+    Person person = null;
     AppDatabase db = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         inputs.put("lname",(EditText) findViewById(R.id.txtRlname));
         inputs.put("phone",(EditText) findViewById(R.id.txtrPhone));
 
-        persons = new LinkedList<>();
+        person = new Person();
 
         db = AppDatabase.getAppDatabase(getApplicationContext());
     }
@@ -40,59 +40,18 @@ public class RegisterActivity extends AppCompatActivity {
     public void Register(View v){
 
         User user = new User();
-        Person person = new Person();
+        //Person person = new Person();
 
         //String key = "";
         Enumeration<String> keyEnumeration = inputs.keys();
 
         for(Enumeration e = inputs.keys(); e.hasMoreElements();){
             String key = e.nextElement().toString();
-            switch (key){
-                case "password":
-                    if(inputs.get(key).getText().toString().length() < 6){
-                        return;
-                    }
-                    user.setPassword(inputs.get(key).getText().toString());
-                    break;
-                case "phone":
-                    if(inputs.get(key).getText().toString().
-                                    replaceAll("[\\s\\-()]", "").length() > 0) {
-
-                        if (inputs.get(key).getText().toString().
-                                replaceAll("[\\s\\-()]", "").length() < 10) {
-                            return;
-                        } else {
-                            try {
-                                long phone = Long.parseLong(inputs.get("phone").getText().toString().
-                                        replaceAll("[\\s\\-()]", ""));
-                            } catch (Exception ex) {
-                                return;
-                            }
-                        }
-                    }
-                    person.setPhone(inputs.get(key).getText().toString());
-                    break;
-                default:
-                    if(inputs.get(key).getText().toString().trim().length() == 0){
-                        return;
-                    }
-                    switch (key) {
-                        case "username":
-                            user.setUsername(inputs.get(key).getText().toString());
-                            break;
-                        case "fname":
-                            person.setFirstName(inputs.get(key).getText().toString());
-                            break;
-                        case "lname":
-                            person.setLastName(inputs.get(key).getText().toString());
-                            break;
-                    }
-                    break;
-            }
+            registerUserRecords(key, person, user);
         }
 
-        this.persons.add(person);
-        long theperson  = addPerson(db, persons)[0];
+
+        long theperson  = addPerson(db, person);
         user.setPersonId((int)theperson);
         addUser(db,user);
 
@@ -106,7 +65,55 @@ public class RegisterActivity extends AppCompatActivity {
         return user;
     }
 
-    private static long[] addPerson(final AppDatabase db, List<Person> person) {
-        return  db.personDAO().insertAll(person);
+    private static long addPerson(final AppDatabase db, Person person) {
+        return  db.personDAO().insertAll(person)[0];
+    }
+
+    private void registerUserRecords(String key, Person person, User user){
+
+        switch (key){
+            case "password":
+                if(inputs.get(key).getText().toString().length() < 6){
+                    return;
+                }
+                user.setPassword(inputs.get(key).getText().toString());
+                break;
+            case "phone":
+                if(inputs.get(key).getText().toString().
+                        replaceAll("[\\s\\-()]", "").length() > 0) {
+
+                    if (inputs.get(key).getText().toString().
+                            replaceAll("[\\s\\-()]", "").length() < 10) {
+                        return;
+                    } else {
+                        try {
+                            long phone = Long.parseLong(inputs.get("phone").getText().toString().
+                                    replaceAll("[\\s\\-()]", ""));
+                        } catch (Exception ex) {
+                            return;
+                        }
+                    }
+                }
+                person.setPhone(inputs.get(key).getText().toString());
+                break;
+            default:
+                if(inputs.get(key).getText().toString().trim().length() == 0){
+                    return;
+                }
+                switch (key) {
+                    case "username":
+                        user.setUsername(inputs.get(key).getText().toString());
+                        person.setEmail(inputs.get(key).getText().toString());
+                        break;
+                    case "fname":
+                        person.setFirstName(inputs.get(key).getText().toString());
+                        break;
+                    case "lname":
+                        person.setLastName(inputs.get(key).getText().toString());
+                        break;
+                }
+                break;
+        }
+
     }
 }
