@@ -8,11 +8,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.neonatal.app.src.classes.PatientPerson;
+import com.neonatal.app.src.entity.Patient;
+import com.neonatal.app.src.entity.Person;
+
 import java.util.ArrayList;
 
 public class MainMenuActivity extends AppCompatActivity implements ListView.OnItemClickListener {
-    ArrayList<String> arrayPatients = new ArrayList<String>();
-    ArrayAdapter<String> adapter;
+    ArrayList<PatientPerson> arrayPatients = new ArrayList<PatientPerson>();
+    ArrayAdapter<PatientPerson> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +24,16 @@ public class MainMenuActivity extends AppCompatActivity implements ListView.OnIt
         setContentView(R.layout.activity_main_menu);
 
 
-        arrayPatients.add("Susan Example");
+        Patient patient = new Patient();
+        patient.setUserId(1);
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayPatients);
+        Person person = new Person();
+        person.setFirstName("Susan");
+        person.setLastName("Example");
+
+        arrayPatients.add(new PatientPerson(patient, person));
+
+        adapter = new ArrayAdapter<PatientPerson>(this, android.R.layout.simple_list_item_1, arrayPatients);
         ListView listViewPatients = (ListView) findViewById(R.id.listViewPatients);
         listViewPatients.setAdapter(adapter);
         listViewPatients.setOnItemClickListener(this);
