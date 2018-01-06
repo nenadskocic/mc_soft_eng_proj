@@ -8,130 +8,156 @@
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     android:visibility="visible"
     tools:context="com.neonatal.app.src.PatientProfileActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.neonatal.app.src.CreateJournalActivity">
 
-    <EditText
-        android:id="@+id/editText_firstName"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="@string/first_name"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/editText_lastName"/>
+            <EditText
+                android:id="@+id/editText_firstName"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="62dp"
+                android:ems="10"
+                android:hint="@string/first_name"
+                android:inputType="textPersonName"
+                android:text=""
+                android:textAlignment="center"
+                app:layout_constraintEnd_toStartOf="@id/editText_lastName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText_lastName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/last_name"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="@id/editText_firstName"
-        app:layout_constraintStart_toEndOf="@id/editText_firstName"
-        app:layout_constraintEnd_toEndOf="parent"/>
+            <EditText
+                android:id="@+id/editText_lastName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:hint="@string/last_name"
+                android:inputType="textPersonName"
+                android:text=""
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/spinner_sex"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/editText_firstName"
+                app:layout_constraintTop_toTopOf="@id/editText_firstName" />
 
-    <TextView
-        android:id="@+id/textView_sex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sex:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/spinner_sex"
-        app:layout_constraintTop_toBottomOf="@id/editText_firstName"
-        app:layout_constraintBottom_toTopOf="@id/datePicker_birthDate"/>
+            <TextView
+                android:id="@+id/textView_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Sex:"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/datePicker_birthDate"
+                app:layout_constraintEnd_toStartOf="@id/spinner_sex"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editText_firstName" />
 
-    <Spinner
-        android:id="@+id/spinner_sex"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:entries="@array/Sex_array"
-        android:padding="2dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/textView_sex"
-        app:layout_constraintTop_toBottomOf="@id/editText_firstName" />
+            <Spinner
+                android:id="@+id/spinner_sex"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:entries="@array/Sex_array"
+                android:padding="2dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/textView_sex"
+                app:layout_constraintTop_toBottomOf="@id/editText_firstName" />
 
-    <TextView
-        android:id="@+id/textView_birthDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Birth Date:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/datePicker_birthDate"
-        app:layout_constraintTop_toBottomOf="@id/spinner_sex"
-        app:layout_constraintBottom_toTopOf="@id/editText_gestationalAgeAtBirth"/>
+            <TextView
+                android:id="@+id/textView_birthDate"
+                android:layout_width="109dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:text="Birth Date:"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/editText_gestationalAgeAtBirth"
+                app:layout_constraintEnd_toStartOf="@id/datePicker_birthDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinner_sex" />
 
-    <DatePicker
-        android:id="@+id/datePicker_birthDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="67dp"
-        android:datePickerMode="spinner"
-        android:calendarViewShown="false"
-        app:layout_constraintTop_toBottomOf="@id/spinner_sex"
-        app:layout_constraintStart_toEndOf="@id/textView_birthDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+            <DatePicker
+                android:id="@+id/datePicker_birthDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                app:layout_constraintBottom_toTopOf="@+id/editText_gestationalAgeAtBirth"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textView_birthDate"
+                app:layout_constraintTop_toBottomOf="@id/spinner_sex" />
 
-    <EditText
-        android:id="@+id/editText_gestationalAgeAtBirth"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="Gestational Age at Birth (weeks)"
-        android:inputType="number"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/datePicker_birthDate"
-        app:layout_constraintBottom_toTopOf="@id/button_clear"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+            <EditText
+                android:id="@+id/editText_gestationalAgeAtBirth"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Gestational Age at Birth (weeks)"
+                android:inputType="number"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@id/button_clear"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/datePicker_birthDate" />
 
-    <Button
-        android:id="@+id/button_clear"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/mybutton"
-        android:text="Clear"
-        app:layout_constraintTop_toBottomOf="@id/editText_gestationalAgeAtBirth"
-        app:layout_constraintBottom_toTopOf="@id/button_accept"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/button_clear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                android:background="@drawable/mybutton"
+                android:text="Clear"
+                app:layout_constraintBottom_toTopOf="@id/button_accept"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editText_gestationalAgeAtBirth" />
 
-    <Button
-        android:id="@+id/button_accept"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/mybutton"
-        android:text="Accept"
-        app:layout_constraintTop_toBottomOf="@+id/button_clear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/button_accept"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="9dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/mybutton"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:text="Accept"
+                app:layout_constraintTop_toBottomOf="@+id/button_clear"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
