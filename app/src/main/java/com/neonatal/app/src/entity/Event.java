@@ -22,6 +22,9 @@ public class Event {
     @ColumnInfo(name="eventChildId")
     private int eventChildId;
 
+    @ColumnInfo(name="personId")
+    private int personId;
+
     public int getId() {
         return id;
     }
@@ -52,5 +55,13 @@ public class Event {
 
     public void setEventChildId(int eventChildId) {
         this.eventChildId = eventChildId;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 }
