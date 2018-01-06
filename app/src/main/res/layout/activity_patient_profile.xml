@@ -22,64 +22,66 @@
                 android:id="@+id/editText_firstName"
                 android:layout_width="0dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="62dp"
+
+                android:layout_marginTop="100dp"
                 android:ems="10"
                 android:hint="@string/first_name"
                 android:inputType="textPersonName"
                 android:text=""
                 android:textAlignment="center"
-                app:layout_constraintEnd_toStartOf="@id/editText_lastName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/editText_lastName"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="49dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:hint="@string/last_name"
                 android:inputType="textPersonName"
                 android:text=""
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/editText_firstName"
-                app:layout_constraintTop_toTopOf="@id/editText_firstName" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_firstName" />
 
             <TextView
                 android:id="@+id/textView_sex"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
+                android:layout_height="35dp"
+
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:text="Sex"
                 android:textAlignment="center"
                 android:textSize="23dp"
-
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/spinner_sex"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_firstName" />
+                app:layout_constraintTop_toBottomOf="@+id/editText_lastName" />
 
             <Spinner
                 android:id="@+id/spinner_sex"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="26dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="13dp"
                 android:entries="@array/Sex_array"
                 android:padding="2dp"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_firstName" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_sex" />
 
             <TextView
                 android:id="@+id/textView_birthDate"
@@ -87,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="22dp"
                 android:text="Birth Date:"
                 android:textAlignment="center"
                 android:textSize="23dp"
@@ -98,15 +100,13 @@
 
             <DatePicker
                 android:id="@+id/datePicker_birthDate"
-                android:layout_width="352dp"
-                android:layout_height="212dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="13dp"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
-                app:layout_constraintBottom_toTopOf="@+id/editText_gestationalAgeAtBirth"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_birthDate" />
@@ -115,53 +115,33 @@
                 android:id="@+id/editText_gestationalAgeAtBirth"
                 android:layout_width="0dp"
                 android:layout_height="46dp"
-                android:layout_marginBottom="24dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="19dp"
                 android:ems="10"
                 android:hint="Gestational Age at Birth (weeks)"
                 android:inputType="number"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@id/button_clear"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/datePicker_birthDate" />
-
-            <Button
-                android:id="@+id/button_clear"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/mybutton"
-                android:text="Clear"
-                android:textSize="23dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/button_accept"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editText_gestationalAgeAtBirth" />
+                app:layout_constraintTop_toBottomOf="@+id/datePicker_birthDate" />
 
             <Button
                 android:id="@+id/button_accept"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="9dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/mybutton"
                 android:text="Accept"
                 android:textSize="23dp"
                 android:textStyle="bold"
-                android:onClick="createNewPatient"
-                app:layout_constraintTop_toBottomOf="@+id/button_clear"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_gestationalAgeAtBirth" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

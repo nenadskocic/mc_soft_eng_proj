@@ -3,24 +3,35 @@ package com.neonatal.app.src;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewStub;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PatientHistoryActivity extends AppCompatActivity {
+public class PatientHistoryActivity extends DrawerActivity {
     ArrayList<String> patient_history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_history);
+        //setContentView(R.layout.activity_patient_history);
+
+        super.onCreateDrawer();
+
+        ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
+        stub.setLayoutResource(R.layout.activity_patient_history);
+        View inflated = stub.inflate();
+
 
         Intent intent = getIntent();
         ArrayList<?> patients = intent.getStringArrayListExtra("patients");
         int index = intent.getIntExtra("patient_id",0);
         TextView txtName = (TextView) findViewById(R.id.txtName);
+
+
 
         String testString = patients.get(index).toString();
 
