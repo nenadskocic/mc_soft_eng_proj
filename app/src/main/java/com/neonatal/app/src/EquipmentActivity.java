@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -19,7 +20,7 @@ import java.util.Map;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-public class EquipmentActivity extends AppCompatActivity implements OnClickListener {
+public class EquipmentActivity extends DrawerActivity implements OnClickListener {
     private Map<String, Integer> equipMap;
     private ListView equipListView;
     Toolbar toolbar;
@@ -27,7 +28,13 @@ public class EquipmentActivity extends AppCompatActivity implements OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_equipment);
+        //setContentView(R.layout.activity_equipment);
+
+        super.onCreateDrawer();
+
+        ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
+        stub.setLayoutResource(R.layout.activity_equipment);
+        View inflated = stub.inflate();
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(getResources().getString(R.string.equip_name));

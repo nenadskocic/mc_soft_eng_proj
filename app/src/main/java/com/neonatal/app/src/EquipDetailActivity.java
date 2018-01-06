@@ -22,10 +22,13 @@ public class EquipDetailActivity extends DrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_equip_details);
+        //set drawer list
+        super.onCreateDrawer();
+
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
-        stub.setLayoutResource(R.layout.activity_patient_profile);
+        stub.setLayoutResource(R.layout.activity_equip_details);
         View inflated = stub.inflate();
+        //set drawer list
 
         equipImage = findViewById(R.id.imageViewEquip);
         mToolbar = findViewById(R.id.toolbarEquip);
