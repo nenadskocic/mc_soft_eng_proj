@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,7 +13,7 @@ import android.widget.TextView;
  * Created by Nenad on 2017-12-12.
  */
 
-public class EquipDetailActivity extends AppCompatActivity {
+public class EquipDetailActivity extends DrawerActivity {
 
     Toolbar mToolbar;
     ImageView equipImage;
@@ -20,6 +22,9 @@ public class EquipDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equip_details);
+        ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
+        stub.setLayoutResource(R.layout.activity_patient_profile);
+        View inflated = stub.inflate();
 
         equipImage = findViewById(R.id.imageView);
         mToolbar = findViewById(R.id.toolbar2);
