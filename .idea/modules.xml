@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:\softwareengineering\6 - Software Engineering Project-softwareengineering.iml" filepath="D:\softwareengineering\6 - Software Engineering Project-softwareengineering.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\softwareengineering\app\app.iml" filepath="D:\softwareengineering\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/softwareengineering.iml" filepath="$PROJECT_DIR$/softwareengineering.iml" />
-      <module fileurl="file://D:\softwareengineering\softwareengineering.iml" filepath="D:\softwareengineering\softwareengineering.iml" />
-      <module fileurl="file://D:\softwareengineering\app\softwareengineering-app.iml" filepath="D:\softwareengineering\app\softwareengineering-app.iml" />
     </modules>
   </component>
 </project>

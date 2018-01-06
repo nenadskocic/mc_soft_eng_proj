@@ -25,7 +25,8 @@ import com.neonatal.app.src.entity.*;
         Notification.class,
         Patient.class,
         Person.class,
-        User.class
+        User.class,
+        Equipment.class
 }, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -44,6 +45,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PatientDAO patientDAO();
     public abstract PersonDAO personDAO();
     public abstract UserDAO userDAO();
+    public abstract EquipmentDAO equipmentDAO();
 
     public static AppDatabase getAppDatabase(Context context) {
         if (INSTANCE == null) {
