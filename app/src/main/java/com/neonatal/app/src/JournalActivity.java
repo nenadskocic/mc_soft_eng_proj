@@ -59,7 +59,7 @@ public class JournalActivity extends DrawerActivity {
         fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));;
+              //  startActivity(new Intent());
             }
         });
 
@@ -68,7 +68,7 @@ public class JournalActivity extends DrawerActivity {
         fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));;
+                //startActivity(new Intent());;
             }
         });
     }
