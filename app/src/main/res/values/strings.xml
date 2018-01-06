@@ -63,6 +63,7 @@
     <string name="equip_uc_summary">A type of IV that is in your baby\'s umbilical cord to give your baby fluids, nutrients
         or medications.</string>
     <string name="logo">Logo</string>
+    <string name="welcome_to_nicu">Welcome to NICU</string>
     <string-array name="equipmentArr">
 
         <item>A</item>
