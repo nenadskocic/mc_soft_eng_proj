@@ -41,6 +41,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
         android:text="@string/btnEquip"
-        android:onClick="onBackPressed"/>
+        android:onClick="onBackPressed"
+        android:background="@drawable/mybutton"
+        android:padding="5dp"/>
 
 </RelativeLayout>

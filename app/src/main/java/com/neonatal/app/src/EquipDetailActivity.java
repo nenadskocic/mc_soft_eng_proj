@@ -14,7 +14,7 @@ import android.widget.TextView;
  * Created by Nenad on 2017-12-12.
  */
 
-public class EquipDetailActivity extends DrawerActivity {
+public class EquipDetailActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
     ImageView equipImage;
@@ -22,13 +22,8 @@ public class EquipDetailActivity extends DrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //set drawer list
-        super.onCreateDrawer();
 
-        ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
-        stub.setLayoutResource(R.layout.activity_equip_details);
-        View inflated = stub.inflate();
-        //set drawer list
+        setContentView(R.layout.activity_equip_details);
 
         equipImage = findViewById(R.id.imageViewEquip);
         mToolbar = findViewById(R.id.toolbarEquip);

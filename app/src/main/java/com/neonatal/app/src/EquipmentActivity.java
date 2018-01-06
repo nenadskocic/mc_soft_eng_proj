@@ -28,7 +28,7 @@ public class EquipmentActivity extends DrawerActivity implements OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_equipment);
+        setContentView(R.layout.activity_equipment);
 
         super.onCreateDrawer();
 
@@ -38,6 +38,7 @@ public class EquipmentActivity extends DrawerActivity implements OnClickListener
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(getResources().getString(R.string.equip_name));
+        toolbar.setTitleTextColor(android.graphics.Color.WHITE);
 
         String[] equipArr = getResources().getStringArray(R.array.equipmentArr);
         Arrays.asList(equipArr);
@@ -91,11 +92,4 @@ public class EquipmentActivity extends DrawerActivity implements OnClickListener
         TextView selectedIndex = (TextView) v;
             equipListView.setSelection(equipMap.get(selectedIndex.getText()));
     }
-
-    public boolean onCreateMenu(Menu m) {
-        getMenuInflater().inflate(R.menu.menu_journal, m);
-        return true;
-    }
-
-
 }
