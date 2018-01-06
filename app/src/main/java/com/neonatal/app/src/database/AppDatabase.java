@@ -26,7 +26,7 @@ import com.neonatal.app.src.entity.*;
         Patient.class,
         Person.class,
         User.class
-}, version = 1)
+}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
@@ -50,6 +50,7 @@ public abstract class AppDatabase extends RoomDatabase {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "neonatal-database")
                     //TODO: Remove allowMainThreadQueries() and implement worker threads
                     .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return INSTANCE;

@@ -19,6 +19,9 @@ public class Patient {
     @ColumnInfo(name="userId")
     private int userId;
 
+    @ColumnInfo(name="gestationalStartDate")
+    private String gestationalStartDate;
+
     public int getId() {
         return id;
     }
@@ -41,5 +44,13 @@ public class Patient {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getGestationalStartDate() {
+        return gestationalStartDate;
+    }
+
+    public void setGestationalStartDate(String gestationalStartDate) {
+        this.gestationalStartDate = gestationalStartDate;
     }
 }
