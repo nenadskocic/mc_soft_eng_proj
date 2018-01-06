@@ -9,6 +9,7 @@ import android.app.Application;
 public class NeonatalApp extends Application {
 
     private int currentUser;
+    private int currentPatient;
 
     public int getCurrentUser() {
         return currentUser;
@@ -16,5 +17,13 @@ public class NeonatalApp extends Application {
 
     public void setCurrentUser(int userId) {
         currentUser = userId;
+    }
+
+    public int getCurrentPatient() {
+        return currentPatient;
+    }
+
+    public void setCurrentPatient(int patientId) {
+        currentPatient = patientId;
     }
 }
