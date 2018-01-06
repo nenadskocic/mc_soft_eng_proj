@@ -4,17 +4,9 @@
 
     <uses-sdk android:minSdkVersion="11" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera2.full" />
 
     <application
         android:name=".NeonatalApp"
@@ -43,12 +35,13 @@
         <activity android:name=".EventsActivity" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".PatientHistoryActivity" />
-        <activity android:name=".PatientMenuActivity"/>
-        <activity android:name=".EquipmentActivity"
-            android:configChanges="orientation"
-        />
-        <activity android:name=".EquipDetailActivity"/>
-        <activity android:name=".VideoActivity"/>
+        <activity android:name=".PatientMenuActivity" />
+        <activity
+            android:name=".EquipmentActivity"
+            android:configChanges="orientation" />
+        <activity android:name=".EquipDetailActivity" />
+        <activity android:name=".VideoActivity" />
+        <activity android:name=".CameraActivity"/>
     </application>
 
 </manifest>
