@@ -46,6 +46,7 @@
         <activity android:name=".PatientMenuActivity"/>
         <activity android:name=".EquipmentActivity"/>
         <activity android:name=".EquipDetailActivity"/>
+        <activity android:name=".VideoActivity"/>
     </application>
 
 </manifest>

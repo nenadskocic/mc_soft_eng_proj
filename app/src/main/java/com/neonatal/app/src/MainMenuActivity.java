@@ -53,7 +53,7 @@ public class MainMenuActivity extends AppCompatActivity implements ListView.OnIt
     }
 
     public void NicuVideo(View v){
-        //startActivity(new Intent(MainMenuActivity.this, NicuVideoActivity.class));
+        startActivity(new Intent(MainMenuActivity.this, VideoActivity.class));
         //this.finish();
     }
 
