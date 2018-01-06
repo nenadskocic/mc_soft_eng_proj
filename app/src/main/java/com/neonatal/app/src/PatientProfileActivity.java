@@ -16,7 +16,7 @@ public class PatientProfileActivity extends DrawerActivity {
         View inflated = stub.inflate();
     }
 
-    public void updateselected(View view) {
+    /*public void updateselected(View view) {
         RadioButton radioButton = findViewById(R.id.radioButton3);
         if(radioButton.isChecked()){
             radioButton.setChecked(false);
@@ -29,5 +29,5 @@ public class PatientProfileActivity extends DrawerActivity {
         if(radioButton.isChecked()){
             radioButton.setChecked(false);
         }
-    }
+    }*/
 }
