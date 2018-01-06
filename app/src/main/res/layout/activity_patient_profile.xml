@@ -138,6 +138,7 @@
                 android:text="Accept"
                 android:textSize="23dp"
                 android:textStyle="bold"
+                android:onClick="createNewPatient"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
