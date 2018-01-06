@@ -15,10 +15,11 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:layout_below="@id/toolbar2"
-        android:contentDescription="@string/image_description" />
+        android:contentDescription="@string/image_description"
+        android:paddingTop="0dp" />
 
     <TextView
         android:id="@+id/textViewEquip"
@@ -26,7 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="121dp"
+        android:textSize="20sp"
+        android:layout_marginTop="100dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:gravity="center"/>
 
