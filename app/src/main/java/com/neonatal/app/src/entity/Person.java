@@ -19,8 +19,8 @@ public class Person {
     @ColumnInfo(name="lastName")
     private String lastName;
 
-    @ColumnInfo(name = "gender")
-    private String gender;
+    @ColumnInfo(name = "sex")
+    private String sex;
 
     @ColumnInfo(name="birthDate")
     private String birthDate;
@@ -71,19 +71,19 @@ public class Person {
         this.email = email;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getBirthDate() {
         return birthDate;
     }
 
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }
