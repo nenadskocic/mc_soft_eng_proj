@@ -30,6 +30,16 @@ public class MainMenuActivity extends AppCompatActivity implements ListView.OnIt
         app = ((NeonatalApp) getApplicationContext());
         db = AppDatabase.getAppDatabase(getApplicationContext());
 
+        refreshPatientList();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshPatientList();
+    }
+
+    public void refreshPatientList() {
         arrayPatients = getPatientsByUserId(app.getCurrentUser());
 
         adapter = new PatientPersonAdapter(this, android.R.layout.simple_list_item_1, arrayPatients);

@@ -145,7 +145,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/editText_gestationalAgeAtBirth" />
 
-
             <Button
                 android:id="@+id/button_accept"
                 android:layout_width="0dp"
@@ -157,11 +156,12 @@
                 android:text="Accept"
                 android:textSize="23dp"
                 android:textStyle="bold"
+                android:onClick="createNewPatient"
+                app:layout_constraintTop_toBottomOf="@+id/button_clear"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_clear" />
+                app:layout_constraintStart_toStartOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
