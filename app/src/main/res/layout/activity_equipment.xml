@@ -25,7 +25,7 @@
 
     <ListView
         android:id="@+id/equipmentList"
-        android:layout_width="315dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/toolbar"

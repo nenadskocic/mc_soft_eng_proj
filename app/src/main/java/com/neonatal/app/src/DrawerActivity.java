@@ -31,7 +31,7 @@ public class DrawerActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_drawer);
         drawerLayout = (DrawerLayout) findViewById(R.id.activity_drawer);
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar2);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbarEquip);
         setSupportActionBar(toolbar);
         drawerToggle = new ActionBarDrawerToggle((Activity) this, drawerLayout, toolbar, 0, 0)
         {

@@ -1,5 +1,6 @@
 package com.neonatal.app.src;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -26,8 +27,8 @@ public class EquipDetailActivity extends DrawerActivity {
         stub.setLayoutResource(R.layout.activity_patient_profile);
         View inflated = stub.inflate();
 
-        equipImage = findViewById(R.id.imageView);
-        mToolbar = findViewById(R.id.toolbar2);
+        equipImage = findViewById(R.id.imageViewEquip);
+        mToolbar = findViewById(R.id.toolbarEquip);
         TextView textView = findViewById(R.id.textViewEquip);
 
         Bundle bundle = getIntent().getExtras();
@@ -97,5 +98,10 @@ public class EquipDetailActivity extends DrawerActivity {
                 textView.setText(R.string.equip_uc_summary);
             }
         }
+    }
+
+    public void onBackPressed(View view) {
+        super.onBackPressed();
+        startActivity(new Intent(EquipDetailActivity.this, EquipmentActivity.class));
     }
 }

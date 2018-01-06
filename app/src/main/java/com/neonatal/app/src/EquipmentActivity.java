@@ -1,6 +1,7 @@
 package com.neonatal.app.src;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class EquipmentActivity extends AppCompatActivity implements OnClickListe
         Arrays.asList(equipArr);
 
         equipListView = findViewById(R.id.equipmentList);
+        equipListView.setBackgroundColor(Color.rgb(234, 233, 247));
         equipListView.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, equipArr));
         getIndexList(equipArr);
