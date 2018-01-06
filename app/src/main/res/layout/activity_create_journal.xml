@@ -168,6 +168,7 @@
                 android:layout_marginStart="16dp"
                 android:background="@drawable/mybutton"
                 android:text="Save"
+                android:onClick="saveData"
                 app:layout_constraintBottom_toTopOf="@+id/button11"
                 app:layout_constraintEnd_toStartOf="@+id/button10"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"

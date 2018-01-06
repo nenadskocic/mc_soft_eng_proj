@@ -16,12 +16,13 @@ import com.neonatal.app.src.entity.Event;
 
 @Dao
 public interface EventDAO {
+
     @Query("SELECT * FROM Event")
     List<Event> getAll();
 
     @Insert
     void insertAll(Event... events);
-
+    
     @Update
     void update(Event event);
 

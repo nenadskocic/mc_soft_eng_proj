@@ -11,6 +11,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.neonatal.app.src.database.AppDatabase;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -21,13 +23,19 @@ public class CreateJournalActivity extends DrawerActivity {
     private Bitmap mImageBitmap;
     Calendar myCalendar = Calendar.getInstance();
 
+    AppDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_create_journal);
         super.onCreateDrawer();
+
+
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_create_journal);
+
+
         View inflated = stub.inflate();
         CheckBox chbxTreatment = (CheckBox)findViewById(R.id.checkBox);
         chbxTreatment.setChecked(false);
@@ -40,6 +48,8 @@ public class CreateJournalActivity extends DrawerActivity {
         EditText editTextact = (EditText)findViewById(R.id.editTextActivity) ;
         EditText editTextDate = (EditText)findViewById(R.id.editTextJurnalDate) ;
         editTextact.requestFocus();
+
+        db = AppDatabase.getAppDatabase(getApplicationContext());
     }
 
     public void showTreatment(View view) {
@@ -91,6 +101,10 @@ public class CreateJournalActivity extends DrawerActivity {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         editText.setText(sdf.format(myCalendar.getTime()));
+    }
+
+    public void saveData(View view) {
+
     }
     //@Override
     /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
