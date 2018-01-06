@@ -44,7 +44,9 @@
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".PatientHistoryActivity" />
         <activity android:name=".PatientMenuActivity"/>
-        <activity android:name=".EquipmentActivity"/>
+        <activity android:name=".EquipmentActivity"
+            android:configChanges="orientation"
+        />
         <activity android:name=".EquipDetailActivity"/>
         <activity android:name=".VideoActivity"/>
     </application>
