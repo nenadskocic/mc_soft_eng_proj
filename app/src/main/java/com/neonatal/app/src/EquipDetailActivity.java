@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,7 +13,7 @@ import android.widget.TextView;
  * Created by Nenad on 2017-12-12.
  */
 
-public class EquipDetailActivity extends AppCompatActivity {
+public class EquipDetailActivity extends DrawerActivity {
 
     Toolbar mToolbar;
     ImageView equipImage;
@@ -19,7 +21,13 @@ public class EquipDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_equip_details);
+        //set drawer list
+        super.onCreateDrawer();
+
+        ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
+        stub.setLayoutResource(R.layout.activity_equip_details);
+        View inflated = stub.inflate();
+        //set drawer list
 
         equipImage = findViewById(R.id.imageView);
         mToolbar = findViewById(R.id.toolbar2);
@@ -84,6 +92,12 @@ public class EquipDetailActivity extends AppCompatActivity {
                         R.drawable.equip_pulse_oximeter));
 
                 textView.setText(R.string.equip_po_summary);
+            }
+            if(mToolbar.getTitle().toString().equalsIgnoreCase("Umbilical Catheter")) {
+                equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
+                        R.drawable.equip_umbilical_catheter));
+
+                textView.setText(R.string.equip_uc_summary);
             }
         }
     }

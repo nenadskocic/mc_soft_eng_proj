@@ -25,8 +25,9 @@ import com.neonatal.app.src.entity.*;
         Notification.class,
         Patient.class,
         Person.class,
-        User.class
-}, version = 1)
+        User.class,
+        Equipment.class
+}, version = 5)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
@@ -44,12 +45,14 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PatientDAO patientDAO();
     public abstract PersonDAO personDAO();
     public abstract UserDAO userDAO();
+    public abstract EquipmentDAO equipmentDAO();
 
     public static AppDatabase getAppDatabase(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "neonatal-database")
                     //TODO: Remove allowMainThreadQueries() and implement worker threads
                     .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return INSTANCE;

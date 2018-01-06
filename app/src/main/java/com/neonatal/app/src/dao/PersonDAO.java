@@ -30,4 +30,7 @@ public interface PersonDAO {
 
     @Delete
     void delete(Person person);
+
+    @Query("SELECT * FROM Person WHERE id = :id LIMIT 1")
+    Person getById(int id);
 }

@@ -5,7 +5,7 @@
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="copyright_2017">Copyright-2017</string>
-    <string name="Neanato_App">Neonatal App</string>
+    <string name="Neanato_App">Neonatal Nurseries</string>
     <string name="emailSample">Yourname@Gmail.com</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
@@ -72,7 +72,7 @@
     <string name="viewCalendar">Calendar</string>
     <string name="viewJournal">Journal</string>
     <string name="patientMenuTitle">Baby Name</string>
-    <string name="equip_name">ICU Equipment</string>
+    <string name="equip_name">NICU Equipment</string>
     <string name="image_description">Image description</string>
     <string name="equip_cm_summary">Wires attached to your baby\'s chest are hooked up to a screen that
         monitors your baby\'s heart rate, breathing rate, and oxygen in their blood.</string>
@@ -90,6 +90,8 @@
         in their blood.</string>
     <string name="equip_uc_summary">A type of IV that is in your baby\'s umbilical cord to give your baby fluids, nutrients
         or medications.</string>
+    <string name="logo">Logo</string>
+    <string name="welcome_to_nicu">Welcome to NICU</string>
     <string-array name="equipmentArr">
 
         <item>A</item>

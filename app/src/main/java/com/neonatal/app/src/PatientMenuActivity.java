@@ -18,12 +18,12 @@ public class PatientMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_menu);
 
-        parentIntent = getIntent();
+        /*parentIntent = getIntent();
         patients = parentIntent.getStringArrayListExtra("patients");
         index = parentIntent.getIntExtra("patient_id",0);
         TextView titleText = (TextView) findViewById(R.id.titleText);
 
-        titleText.setText(patients.get(index).toString());
+        titleText.setText(patients.get(index).toString());*/
     }
 
     public void ViewHistory(View v){

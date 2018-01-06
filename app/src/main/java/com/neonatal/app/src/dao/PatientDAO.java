@@ -27,4 +27,7 @@ public interface PatientDAO {
 
     @Delete
     void delete(Patient patient);
+
+    @Query("SELECT * FROM patient WHERE userId = :userId")
+    List<Patient> getByUserId(int userId);
 }

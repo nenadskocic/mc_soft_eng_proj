@@ -20,13 +20,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
+    NeonatalApp app;
+    AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        AppDatabase db = AppDatabase.getAppDatabase(getApplicationContext());
+        app = ((NeonatalApp) getApplicationContext());
+        db = AppDatabase.getAppDatabase(getApplicationContext());
 
         populateWithTestData(db);
 
@@ -128,23 +131,32 @@ public class LoginActivity extends AppCompatActivity {
         String inputUsername = textView_username.getText().toString();
         String inputPassword = textView_password.getText().toString();
 
-        AppDatabase db = AppDatabase.getAppDatabase(getApplicationContext());
+        db = AppDatabase.getAppDatabase(getApplicationContext());
 
-        User user = getUserByUsername(db, inputUsername);
-
-        if(inputUsername.equals(user.getUsername()) && inputPassword.equals(user.getPassword()))
-        {
-            startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
-            this.finish();
+        User user = null;
+        if(!inputUsername.equals("")){
+            user = getUserByUsername(db, inputUsername);
         }
-        else
-        {
-            Context context = getApplicationContext();
-            CharSequence text = "Wrong username/password";
-            int duration = Toast.LENGTH_SHORT;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+        if(user!=null)
+        {
+            if(inputUsername.equals(user.getUsername()) && inputPassword.equals(user.getPassword()))
+            {
+                app.setCurrentUser(user.getId());
+                startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
+                this.finish();
+            }
+            else
+            {
+                Context context = getApplicationContext();
+                CharSequence text = "Wrong username/password";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
+
+
     }
 }
