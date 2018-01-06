@@ -5,7 +5,7 @@
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="copyright_2017">Copyright-2017</string>
-    <string name="Neanato_App">Neonatal App</string>
+    <string name="Neanato_App">Neonatal Nurseries</string>
     <string name="emailSample">Yourname@Gmail.com</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
@@ -62,6 +62,8 @@
         in their blood.</string>
     <string name="equip_uc_summary">A type of IV that is in your baby\'s umbilical cord to give your baby fluids, nutrients
         or medications.</string>
+    <string name="logo">Logo</string>
+    <string name="welcome_to_nicu">Welcome to NICU</string>
     <string-array name="equipmentArr">
 
         <item>A</item>
