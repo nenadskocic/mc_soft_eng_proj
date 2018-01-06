@@ -27,7 +27,7 @@ import com.neonatal.app.src.entity.*;
         Person.class,
         User.class,
         Equipment.class
-}, version = 3)
+}, version = 4)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
