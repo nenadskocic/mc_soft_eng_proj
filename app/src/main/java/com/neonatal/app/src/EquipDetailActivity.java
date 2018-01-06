@@ -85,6 +85,12 @@ public class EquipDetailActivity extends AppCompatActivity {
 
                 textView.setText(R.string.equip_po_summary);
             }
+            if(mToolbar.getTitle().toString().equalsIgnoreCase("Umbilical Catheter")) {
+                equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
+                        R.drawable.equip_umbilical_catheter));
+
+                textView.setText(R.string.equip_uc_summary);
+            }
         }
     }
 }

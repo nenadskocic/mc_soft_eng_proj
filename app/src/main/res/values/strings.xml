@@ -44,7 +44,7 @@
     <string name="viewCalendar">Calendar</string>
     <string name="viewJournal">Journal</string>
     <string name="patientMenuTitle">Baby Name</string>
-    <string name="equip_name">ICU Equipment</string>
+    <string name="equip_name">NICU Equipment</string>
     <string name="image_description">Image description</string>
     <string name="equip_cm_summary">Wires attached to your baby\'s chest are hooked up to a screen that
         monitors your baby\'s heart rate, breathing rate, and oxygen in their blood.</string>
