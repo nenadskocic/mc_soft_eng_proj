@@ -130,22 +130,30 @@ public class LoginActivity extends AppCompatActivity {
 
         db = AppDatabase.getAppDatabase(getApplicationContext());
 
-        User user = getUserByUsername(db, inputUsername);
-
-        if(inputUsername.equals(user.getUsername()) && inputPassword.equals(user.getPassword()))
-        {
-            app.setCurrentUser(user.getId());
-            startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
-            this.finish();
+        User user = null;
+        if(!inputUsername.equals("")){
+            user = getUserByUsername(db, inputUsername);
         }
-        else
-        {
-            Context context = getApplicationContext();
-            CharSequence text = "Wrong username/password";
-            int duration = Toast.LENGTH_SHORT;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+        if(user!=null)
+        {
+            if(inputUsername.equals(user.getUsername()) && inputPassword.equals(user.getPassword()))
+            {
+                app.setCurrentUser(user.getId());
+                startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
+                this.finish();
+            }
+            else
+            {
+                Context context = getApplicationContext();
+                CharSequence text = "Wrong username/password";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
+
+
     }
 }
