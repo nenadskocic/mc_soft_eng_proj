@@ -40,18 +40,6 @@ public class CreateJournalActivity extends DrawerActivity {
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_create_journal);
         View inflated = stub.inflate();
-        CheckBox chbxTreatment = (CheckBox)findViewById(R.id.checkBox);
-        chbxTreatment.setChecked(false);
-        EditText text_treatment = (EditText)findViewById(R.id.editTextTreatment);
-        EditText text_Type = (EditText)findViewById(R.id.editTextType);
-        EditText text_Reason = (EditText)findViewById(R.id.editTextReason);
-        text_treatment.setVisibility(View.GONE);
-        text_Type.setVisibility(View.GONE);
-        text_Reason.setVisibility(View.GONE);
-        EditText editTextact = (EditText)findViewById(R.id.editTextHead) ;
-        EditText editTextDate = (EditText)findViewById(R.id.editTextJurnalDate) ;
-        editTextact.requestFocus();
-    }
 
         ArrayList<Milestone> milestones = new ArrayList(db.milestoneDAO().getAll());
 
