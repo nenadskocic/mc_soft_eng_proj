@@ -1,5 +1,6 @@
 package com.neonatal.app.src;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class EquipDetailActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textViewEquip);
 
         Bundle bundle = getIntent().getExtras();
+        mToolbar.setTitleTextColor(Color.WHITE);
 
         if(bundle != null) {
             mToolbar.setTitle(bundle.getString("EquipName"));
