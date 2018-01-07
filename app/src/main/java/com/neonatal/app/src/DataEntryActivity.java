@@ -11,10 +11,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.neonatal.app.src.database.AppDatabase;
+import com.neonatal.app.src.entity.DataEntry;
 import com.neonatal.app.src.entity.DataField;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -41,7 +43,8 @@ public class DataEntryActivity extends DrawerActivity {
     ///////////////////////////////////////////
 
     long[] idField = null;
-    String[] dataFielddescription = new String[]{"Height", "Weight"};
+    String[] dataFielddescription = new String[]{"Height", "Weight", "Head"};
+    String[] dataFieldUnit = new String[]{"cm", "lb", "cm"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +87,7 @@ public class DataEntryActivity extends DrawerActivity {
                     String discription  = dataFielddescription[index];
                     if(!discription.equals(df.getDescription())){
                         df.setDescription(discription);
+                        df.setDataType(dataFieldUnit[index]);
                         insertDataField(db,df);
                     }
                 }
@@ -94,8 +98,8 @@ public class DataEntryActivity extends DrawerActivity {
                 DataField df = new DataField();
                 //String discription  = dataFielddescription[index];
                 df.setDescription(discription);
+                df.setDataType(dataFieldUnit[index]);
                 insertDataField(db,df);
-
                 index++;
             }
         }
@@ -156,11 +160,32 @@ public class DataEntryActivity extends DrawerActivity {
     public void saveData(View view) {
         List<DataField> fieldlist = queryDataField(db);
 
-        
+        DataEntry[] dataArray = new DataEntry[fieldlist.size()];
+
+        EditText[] fields = new EditText[]{
+            editHeight,
+            editWeight,
+            editHead
+        };
+
+        int index = 0;
 
         for(DataField df : fieldlist){
-
+            dataArray[index] = new DataEntry();
+           // if(!fields[index].getText().toString().trim().equals("")){
+            for(int i = 0; i < dataFielddescription.length; i++){
+                if(df.getDescription().trim().equals(dataFielddescription[i])){
+                    dataArray[i].setValue(fields[i].getText().toString());
+                    dataArray[i].setDataFieldId(df.getId());
+                    db.dataEntryDAO().insertAll(dataArray[i]);
+                    break;
+                }else{
+                    continue;
+                }
+            }
         }
+
+
     }
 
     public void upDateData(View view) {
