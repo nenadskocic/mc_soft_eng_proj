@@ -27,6 +27,34 @@
         <item>Female</item>
         <item>Other</item>
     </string-array>
+
+    <string-array name="PreMatrureweeks">
+        <item>1 Week</item>
+        <item>2 Weeks</item>
+        <item>3 Weeks</item>
+        <item>4 Weeks</item>
+        <item>5 Weeks</item>
+        <item>6 Weeks</item>
+        <item>7 Weeks</item>
+        <item>8 Weeks</item>
+        <item>9 Weeks</item>
+        <item>10 Weeks</item>
+        <item>11 Weeks</item>
+        <item>12 Weeks</item>
+        <item>13 Weeks</item>
+        <item>14 Weeks</item>
+        <item>15 Weeks</item>
+        <item>16 Weeks</item>
+        <item>17 Weeks</item>
+        <item>18 Weeks</item>
+        <item>19 Weeks</item>
+        <item>20 Weeks</item>
+        <item>21 Weeks</item>
+        <item>22 Weeks</item>
+        <item>23 Weeks</item>
+        <item>24 Weeks</item>
+    </string-array>
+
     <string name="title_activity_main">DrawBaseActivity</string>
     <string name="title_activity_drawer_base">DrawerBaseActivity</string>
     <string name="menu">menu</string>
@@ -41,7 +69,7 @@
     <string name="nicuVideo">NICU Virtual Tour</string>
     <string name="mainMenuTitle">Neonatal App</string>
     <string name="viewHistory">Baby History</string>
-    <string name="viewCalendar">Calendar</string>
+    <string name="viewAppointments">Appointments</string>
     <string name="viewJournal">Journal</string>
     <string name="patientMenuTitle">Baby Name</string>
     <string name="equip_name">NICU Equipment</string>
@@ -64,6 +92,9 @@
         or medications.</string>
     <string name="logo">Logo</string>
     <string name="welcome_to_nicu">Welcome to NICU</string>
+    <string name="sex_title">Sex:</string>
+    <string name="birth_date_title">Birth Date:</string>
+    <string name="age_title">Age:</string>
     <string-array name="equipmentArr">
 
         <item>A</item>

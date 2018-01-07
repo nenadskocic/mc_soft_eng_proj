@@ -32,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         db = AppDatabase.getAppDatabase(getApplicationContext());
 
         populateWithTestData(db);
+
+        //EditText editText = (EditText) findViewById(R.id.txt_Username);
+        //editText.setText(getDatabasePath("neonatal-database").getAbsolutePath());
     }
 
     public void Register(View v){
