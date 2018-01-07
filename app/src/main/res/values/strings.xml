@@ -27,6 +27,34 @@
         <item>Female</item>
         <item>Other</item>
     </string-array>
+
+    <string-array name="PreMatrureweeks">
+        <item>1 Week</item>
+        <item>2 Weeks</item>
+        <item>3 Weeks</item>
+        <item>4 Weeks</item>
+        <item>5 Weeks</item>
+        <item>6 Weeks</item>
+        <item>7 Weeks</item>
+        <item>8 Weeks</item>
+        <item>9 Weeks</item>
+        <item>10 Weeks</item>
+        <item>11 Weeks</item>
+        <item>12 Weeks</item>
+        <item>13 Weeks</item>
+        <item>14 Weeks</item>
+        <item>15 Weeks</item>
+        <item>16 Weeks</item>
+        <item>17 Weeks</item>
+        <item>18 Weeks</item>
+        <item>19 Weeks</item>
+        <item>20 Weeks</item>
+        <item>21 Weeks</item>
+        <item>22 Weeks</item>
+        <item>23 Weeks</item>
+        <item>24 Weeks</item>
+    </string-array>
+
     <string name="title_activity_main">DrawBaseActivity</string>
     <string name="title_activity_drawer_base">DrawerBaseActivity</string>
     <string name="menu">menu</string>

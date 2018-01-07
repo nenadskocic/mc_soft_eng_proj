@@ -19,6 +19,9 @@ public interface PersonDAO {
     @Query("SELECT * FROM Person")
     List<Person> getAll();
 
+   /* @Insert
+    long[] insertAll(List<Person> people);*/
+
     @Insert
     long[] insertAll(Person... people);
 
