@@ -126,7 +126,8 @@ public class DataEntryActivity extends DrawerActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 Patient p = db.patientDAO().getById(app.getCurrentPatient());
-                Event e = db.eventDAO().
+                List<Event> eList = db.eventDAO().getByPersonId(app.getCurrentPatient());
+
             }
         });
     }

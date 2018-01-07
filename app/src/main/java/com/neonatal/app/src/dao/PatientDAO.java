@@ -31,6 +31,6 @@ public interface PatientDAO {
     @Query("SELECT * FROM patient where id = :id LIMIT 1")
     Patient getById(int id);
 
-    @Query("SELECT * FROM patient WHERE userId = :userId")
+    @Query("SELECT * FROM patient WHERE eventDateTime = :dateTime")
     List<Patient> getByUserId(int userId);
 }
