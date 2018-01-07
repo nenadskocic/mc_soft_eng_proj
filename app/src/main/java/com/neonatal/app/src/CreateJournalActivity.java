@@ -1,8 +1,19 @@
 package com.neonatal.app.src;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StrictMode;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.DatePicker;
@@ -16,9 +27,13 @@ import com.neonatal.app.src.entity.Event;
 import com.neonatal.app.src.entity.JournalEntry;
 import com.neonatal.app.src.entity.Milestone;
 
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class CreateJournalActivity extends DrawerActivity {
@@ -27,6 +42,9 @@ public class CreateJournalActivity extends DrawerActivity {
 
     private ImageView mImageView;
     private Bitmap mImageBitmap;
+    private String mCurrentPhotoPath;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
     Calendar myCalendar = Calendar.getInstance();
 
     @Override
@@ -36,6 +54,7 @@ public class CreateJournalActivity extends DrawerActivity {
 
         app = ((NeonatalApp) getApplicationContext());
         db = AppDatabase.getAppDatabase(getApplicationContext());
+
 
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_create_journal);
@@ -49,6 +68,64 @@ public class CreateJournalActivity extends DrawerActivity {
         Spinner spinner_milestone = (Spinner) findViewById(R.id.spinner_milestone);
         spinner_milestone.setAdapter(adapter);
 
+        if (Build.VERSION.SDK_INT >= 24) {
+            try {
+                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                m.invoke(null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        mImageView = (ImageView) findViewById(R.id.imageView);
+        mImageView.setClickable(true);
+
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+
+                    File photoFile = null;
+                    try {
+                        photoFile = createImageFile();
+                    } catch (IOException ex) {
+                    }
+
+                    if (photoFile != null) {
+                        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                        startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE);
+                    }
+                }
+            }
+        });
+
+    }
+
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,
+                ".jpg",
+                storageDir
+        );
+        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            try {
+                mImageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
+                mImageView.setImageBitmap(mImageBitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -65,11 +142,6 @@ public class CreateJournalActivity extends DrawerActivity {
 
     };
 
-
-    public void imgCameraAccess(View view) {
-
-    }
-
     public void pickDate(View view) {
         new DatePickerDialog(CreateJournalActivity.this, date, myCalendar
                 .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
@@ -77,7 +149,7 @@ public class CreateJournalActivity extends DrawerActivity {
     }
 
     private void updateLabel() {
-        EditText editText = (EditText)findViewById(R.id.editText_journalDate) ;
+        EditText editText = (EditText) findViewById(R.id.editText_journalDate);
         String myFormat = "yyyy-MM-dd"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
@@ -90,9 +162,9 @@ public class CreateJournalActivity extends DrawerActivity {
         Spinner spinner_milestone = (Spinner) findViewById(R.id.spinner_milestone);
 
         JournalEntry journalEntry = new JournalEntry();
-        journalEntry.setImagePath("");
+        journalEntry.setImagePath("/internal/storage/Pictures");
         journalEntry.setBodyText(editText_bodyText.getText().toString());
-        journalEntry.setMilestoneId(((Milestone)spinner_milestone.getSelectedItem()).getId());
+        journalEntry.setMilestoneId(((Milestone) spinner_milestone.getSelectedItem()).getId());
         int journalEntryId = (int) db.journalEntryDAO().insertAll(journalEntry)[0];
 
         Event event = new Event();
