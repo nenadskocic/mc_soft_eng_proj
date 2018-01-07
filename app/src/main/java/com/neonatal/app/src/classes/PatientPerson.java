@@ -14,16 +14,22 @@ public class PatientPerson {
 
     private String firstName;
     private String lastName;
+    private String sex;
+    private String birthDate;
+    private String gestationalStartDate;
     private String phone;
     private String email;
 
     public PatientPerson (Patient patient, Person person) {
         this.patientId = patient.getId();
-        this.personId = person.getId();
         this.userId = patient.getUserId();
+        this.gestationalStartDate = patient.getGestationalStartDate();
 
+        this.personId = person.getId();
         this.firstName = person.getFirstName();
         this.lastName = person.getLastName();
+        this.sex = person.getSex();
+        this.birthDate = person.getBirthDate();
         this.phone = person.getPhone();
         this.email = person.getEmail();
     }
@@ -82,5 +88,29 @@ public class PatientPerson {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getGestationalStartDate() {
+        return gestationalStartDate;
+    }
+
+    public void setGestationalStartDate(String gestationalStartDate) {
+        this.gestationalStartDate = gestationalStartDate;
     }
 }

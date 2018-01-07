@@ -69,7 +69,7 @@
     <string name="nicuVideo">NICU Virtual Tour</string>
     <string name="mainMenuTitle">Neonatal App</string>
     <string name="viewHistory">Baby History</string>
-    <string name="viewCalendar">Calendar</string>
+    <string name="viewAppointments">Appointments</string>
     <string name="viewJournal">Journal</string>
     <string name="patientMenuTitle">Baby Name</string>
     <string name="equip_name">NICU Equipment</string>
@@ -95,6 +95,9 @@
     <string name="welcome_to_nicu">Welcome to NICU</string>
     <string name="take_picture">Take Picture</string>
     <string name="current_baby_pic">Current Baby Pic</string>
+    <string name="sex_title">Sex:</string>
+    <string name="birth_date_title">Birth Date:</string>
+    <string name="age_title">Age:</string>
     <string-array name="equipmentArr">
 
         <item>A</item>

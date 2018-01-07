@@ -29,14 +29,18 @@ public class EquipmentActivity extends DrawerActivity implements OnClickListener
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_equipment);
 
+
+
         super.onCreateDrawer();
 
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_equipment);
         View inflated = stub.inflate();
 
-        toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(getResources().getString(R.string.equip_name));
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("NICU Equipment");
+        //toolbar.setTitle(getResources().getString(R.string.equip_name));
 
         String[] equipArr = getResources().getStringArray(R.array.equipmentArr);
         Arrays.asList(equipArr);
