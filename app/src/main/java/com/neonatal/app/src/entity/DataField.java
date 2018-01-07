@@ -16,6 +16,9 @@ public class DataField {
     @ColumnInfo(name="description")
     private String description;
 
+    @ColumnInfo(name="dataType")
+    private String dataType;
+
     public int getId() {
         return id;
     }
@@ -30,5 +33,15 @@ public class DataField {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+
+    public String getDataType() {
+        return dataType;
+    }
+
+    public void setDataType(String dataType) {
+        this.dataType = dataType;
     }
 }

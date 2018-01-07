@@ -16,6 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 
+import com.neonatal.app.src.entity.Patient;
+import com.neonatal.app.src.entity.Person;
+
 import java.util.ArrayList;
 
 public class DrawerActivity extends AppCompatActivity {
@@ -24,6 +27,8 @@ public class DrawerActivity extends AppCompatActivity {
     public ListView drawerList;
     public String[] layers;
     private ActionBarDrawerToggle drawerToggle;
+   //private Person person = new Person();
+    //private Patient patient = new Patient();
    // private Map map;
 
     protected void onCreateDrawer() {
@@ -71,11 +76,11 @@ public class DrawerActivity extends AppCompatActivity {
                     case 2:
                         break;
                     case 3:
-                        Intent intent = new Intent(DrawerActivity.this, PatientHistoryActivity.class);
-                        ArrayList<String> arrayPatients = new ArrayList<String>();
+                        Intent intent = new Intent(DrawerActivity.this, DataEntryActivity.class);
+                        /*ArrayList<String> arrayPatients = new ArrayList<String>();
                         arrayPatients.add("Susan Example");
                         intent.putExtra("patient_id", 0);
-                        intent.putExtra("patients", arrayPatients);
+                        intent.putExtra("patients", arrayPatients);*/
                         startActivity(intent);
                         break;
                     case 4:
