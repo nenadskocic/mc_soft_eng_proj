@@ -19,6 +19,15 @@ public interface JournalEntryDAO {
     @Query("SELECT * FROM JournalEntry")
     List<JournalEntry> getAll();
 
+    @Query("SELECT * FROM JournalEntry WHERE date LIKE :date AND userId = :userId ORDER BY date DESC")
+    List<JournalEntry> getByDateAndId( String date, int userId);
+
+    @Query("SELECT * FROM JournalEntry WHERE userId = :userId ORDER BY date DESC")
+    List<JournalEntry> getAllById( int userId);
+
+     @Query("SELECT * FROM JournalEntry WHERE date LIKE :date  ORDER BY date DESC")
+    List<JournalEntry> getByDate( String date);
+
     @Insert
     void insertAll(JournalEntry... journalEntries);
 

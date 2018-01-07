@@ -1,23 +1,33 @@
 package com.neonatal.app.src;
 
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.support.design.widget.FloatingActionButton;
 
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.view.ViewStub;
+import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TextView;
 
-public class JournalActivity extends DrawerActivity {
+import com.neonatal.app.src.adapters.JournalsAdapter;
+import com.neonatal.app.src.database.AppDatabase;
+import com.neonatal.app.src.entity.JournalEntry;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+
+public class JournalActivity extends DrawerActivity implements DatePickerFragment.DialogListener{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -27,12 +37,17 @@ public class JournalActivity extends DrawerActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    //private SectionsPagerAdapter mSectionsPagerAdapter;
 
+
+     private ArrayList<JournalEntry> journals = null;
+     AppDatabase db = null;
+     NeonatalApp app = null;
+     private String date;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    private ViewPager mViewPager;
+    //private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +64,31 @@ public class JournalActivity extends DrawerActivity {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        //mViewPager = (ViewPager) findViewById(R.id.container);
+       // mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        db = AppDatabase.getAppDatabase(getApplicationContext());
+        this.app = ((NeonatalApp) getApplicationContext());
+        this.journals = (ArrayList<JournalEntry>) db.journalEntryDAO().getAll();
+
+        ListView lv = (ListView) findViewById(R.id.lv_journals);
+
+        JournalsAdapter journalsAdapter = new JournalsAdapter(this, this.journals);
+
+        lv.setAdapter(journalsAdapter);
 
         FloatingActionButton fbtn = (FloatingActionButton) findViewById(R.id.addnew);
         fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  startActivity(new Intent());
+
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "datePicker");
+
+
             }
         });
 
@@ -71,6 +100,20 @@ public class JournalActivity extends DrawerActivity {
                 //startActivity(new Intent());;
             }
         });
+    }
+
+
+    public void setDate(String date) {
+        this.date = date;
+
+        this.journals = (ArrayList<JournalEntry>) db.journalEntryDAO().getByDate(date);
+
+        ListView lv = (ListView) findViewById(R.id.lv_journals);
+
+        JournalsAdapter journalsAdapter = new JournalsAdapter(this, this.journals);
+
+        lv.setAdapter(journalsAdapter);
+
     }
 
 
@@ -154,4 +197,10 @@ public class JournalActivity extends DrawerActivity {
             return 3;
         }
     }
+
+
+
+
+
+
 }

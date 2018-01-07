@@ -97,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         //Journal Entry
         JournalEntry journalEntry = new JournalEntry();
         journalEntry.setBodyText("Today Susan had her first breastfeeding!");
+        journalEntry.setDate("2018-1-7");
         journalEntry.setMilestoneId(1);
         addJournalEntry(db, journalEntry);
 
