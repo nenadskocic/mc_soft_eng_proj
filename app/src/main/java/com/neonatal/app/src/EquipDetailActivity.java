@@ -17,7 +17,7 @@ public class EquipDetailActivity extends DrawerActivity {
 
     Toolbar mToolbar;
     ImageView equipImage;
-
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,10 @@ public class EquipDetailActivity extends DrawerActivity {
         View inflated = stub.inflate();
         //set drawer list
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setTitle("");
+
         equipImage = findViewById(R.id.imageView);
         mToolbar = findViewById(R.id.toolbar2);
         TextView textView = findViewById(R.id.textViewEquip);
@@ -37,6 +41,7 @@ public class EquipDetailActivity extends DrawerActivity {
 
         if(bundle != null) {
             mToolbar.setTitle(bundle.getString("EquipName"));
+            getSupportActionBar().setTitle(bundle.getString("EquipName"));
 
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Cardiopulmonary Monitor")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
@@ -48,55 +53,47 @@ public class EquipDetailActivity extends DrawerActivity {
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Central Venous Catheter")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
                         R.drawable.equip_central_venous_catheter));
-
                 textView.setText(R.string.equip_cvc_summary);
             }
 
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Continuous Positive Airway Pressure")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
                         R.drawable.equip_continuous_pos_airway_pressure));
-
                 textView.setText(R.string.equip_cpap_summary);
             }
 
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Incubator")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
                         R.drawable.equip_incubator));
-
                 textView.setText(R.string.equip_i_summary);
             }
 
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Nasogastric Tube")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
                         R.drawable.equip_nasogastric_tube));
-
                 textView.setText(R.string.equip_nt_summary);
             }
 
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Peripheral Intravenous Catheter")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
                         R.drawable.equip_peripheral_intrav_catheter));
-
                 textView.setText(R.string.equip_pic_summary);
             }
 
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Phototherapy")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
                         R.drawable.equip_phototherapy));
-
                 textView.setText(R.string.equip_p_summary);
             }
 
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Pulse Oximeter")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
                         R.drawable.equip_pulse_oximeter));
-
                 textView.setText(R.string.equip_po_summary);
             }
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Umbilical Catheter")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
                         R.drawable.equip_umbilical_catheter));
-
                 textView.setText(R.string.equip_uc_summary);
             }
         }
