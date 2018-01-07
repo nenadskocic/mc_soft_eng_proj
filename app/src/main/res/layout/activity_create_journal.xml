@@ -37,7 +37,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
-                android:layout_height="133dp"
+                android:layout_height="233dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
@@ -54,6 +54,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:ems="10"
+                android:editable="false"
                 android:inputType="none"
                 app:layout_constraintEnd_toStartOf="@id/button_pickDate"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,27 +62,30 @@
 
             <Button
                 android:id="@+id/button_pickDate"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
                 android:background="@drawable/mybutton"
-                android:text="PD"
                 android:onClick="pickDate"
+                android:text="Pick date"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/editText_journalDate"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <Spinner
                 android:id="@+id/spinner_milestone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/editText_journalDate"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:textAlignment="center"
+                android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/editText_bodyText"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-            />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_journalDate" />
 
             <EditText
                 android:id="@+id/editText_bodyText"
@@ -95,22 +99,23 @@
                 app:layout_constraintBottom_toTopOf="@+id/button_save"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:hint="Description"
                 />
 
             <Button
                 android:id="@+id/button_save"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/mybutton"
-                android:text="Save"
                 android:onClick="save"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editText_bodyText"
+                android:text="Save"
                 app:layout_constraintBottom_toBottomOf="parent"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editText_bodyText" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
