@@ -3,6 +3,8 @@ package com.neonatal.app.src;
 import android.app.DatePickerDialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.CheckBox;
@@ -14,6 +16,7 @@ import com.neonatal.app.src.database.AppDatabase;
 import com.neonatal.app.src.entity.DataEntry;
 import com.neonatal.app.src.entity.DataField;
 import com.neonatal.app.src.entity.Event;
+import com.neonatal.app.src.entity.Patient;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -109,6 +112,23 @@ public class DataEntryActivity extends DrawerActivity {
             }
         }
 
+        editTextDate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Patient p = db.patientDAO().getById(app.getCurrentPatient());
+                Event e = db.eventDAO().
+            }
+        });
     }
 
     public void showTreatment(View view) {

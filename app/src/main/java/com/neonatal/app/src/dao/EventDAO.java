@@ -27,4 +27,7 @@ public interface EventDAO {
 
     @Delete
     void delete(Event event);
+
+    @Query("SELECT * FROM event where personId = :id LIMIT 1")
+    long getByPersonId(int id);
 }
