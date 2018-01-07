@@ -12,14 +12,9 @@ import java.sql.Date;
  * Created by Maurice on 11/30/2017.
  */
 
-@Entity(tableName = "JournalEntry"
-        //foreignKeys = {@ForeignKey(entity = User.class, parentColumns = "id", childColumns = "userId")}
-        )
-
-/*
+@Entity(tableName = "JournalEntry")
 
 
- */
 public class JournalEntry {
     @PrimaryKey(autoGenerate = true)
     private int id;
