@@ -94,6 +94,7 @@
     <string name="logo">Logo</string>
     <string name="welcome_to_nicu">Welcome to NICU</string>
     <string name="take_picture">Take Picture</string>
+    <string name="current_baby_pic">Current Baby Pic</string>
     <string-array name="equipmentArr">
 
         <item>A</item>
