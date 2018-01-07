@@ -3,6 +3,7 @@ package com.neonatal.app.src;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 
 import android.support.v4.app.DialogFragment;
@@ -97,7 +98,7 @@ public class JournalActivity extends DrawerActivity implements DatePickerFragmen
         fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent());;
+                //startActivity(new Intent(getActivity(), NewJournal.class);
             }
         });
     }

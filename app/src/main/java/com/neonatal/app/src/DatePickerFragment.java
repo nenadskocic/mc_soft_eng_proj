@@ -32,7 +32,7 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public interface DialogListener {
-        public void setDate(String date);
+        void setDate(String date);
 
     }
 }
