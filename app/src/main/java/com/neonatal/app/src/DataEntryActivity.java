@@ -12,8 +12,6 @@ import android.widget.ImageView;
 
 import com.neonatal.app.src.database.AppDatabase;
 import com.neonatal.app.src.entity.DataField;
-import com.neonatal.app.src.entity.Person;
-import com.neonatal.app.src.entity.User;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,9 +29,19 @@ public class DataEntryActivity extends DrawerActivity {
     EditText text_Type = null;
     EditText text_Reason = null;
     EditText editTextact = null;
+
+
+    ////////////////////////////////////////////
+    //height
+    EditText editHeight = null;
+    EditText editWeight = null;
+    EditText editHead = null;
     EditText editTextDate = null;
+    //weight
+    ///////////////////////////////////////////
 
     long[] idField = null;
+    String[] dataFielddescription = new String[]{"Height", "Weight"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +56,8 @@ public class DataEntryActivity extends DrawerActivity {
         /////////////////////////////elements////////////////////////////////////////
         CheckBox chbxTreatment = (CheckBox)findViewById(R.id.checkBox);
         chbxTreatment.setChecked(false);
+        //comment this line out if you need treatment set
+        chbxTreatment.setVisibility(View.GONE);
         text_treatment = (EditText)findViewById(R.id.editTextTreatment);
         text_Type = (EditText)findViewById(R.id.editTextType);
         text_Reason = (EditText)findViewById(R.id.editTextReason);
@@ -56,12 +66,16 @@ public class DataEntryActivity extends DrawerActivity {
         text_Type.setVisibility(View.GONE);
         text_Reason.setVisibility(View.GONE);
 
-        editTextact = (EditText)findViewById(R.id.editTextActivity) ;
-        editTextDate = (EditText)findViewById(R.id.editTextJurnalDate) ;
+        editTextact = (EditText)findViewById(R.id.editTextHead);
+        ///////////////////
+        editTextDate = (EditText)findViewById(R.id.editTextJurnalDate);
 
         editTextact.requestFocus();
 
-        String[] dataFielddescription = new String[]{"height", "weight"};
+        editHead = (EditText)findViewById(R.id.editTextHead);
+        editHeight = (EditText)findViewById(R.id.editTextHeight);
+        editWeight = (EditText)findViewById(R.id.editTextWeight);
+
         List<DataField> dataFields_list = queryDataField(db);
         int index = 0;
         if(dataFields_list.size() > 0){
@@ -76,12 +90,12 @@ public class DataEntryActivity extends DrawerActivity {
                 index++;
             }
         }else{
-            for(DataField df : dataFields_list){
-                if(index < dataFielddescription.length){
-                    String discription  = dataFielddescription[index];
-                    df.setDescription(discription);
-                    insertDataField(db,df);
-                }
+            for(String discription : dataFielddescription){
+                DataField df = new DataField();
+                //String discription  = dataFielddescription[index];
+                df.setDescription(discription);
+                insertDataField(db,df);
+
                 index++;
             }
         }
@@ -140,11 +154,17 @@ public class DataEntryActivity extends DrawerActivity {
     }
 
     public void saveData(View view) {
+        List<DataField> fieldlist = queryDataField(db);
 
+        
 
+        for(DataField df : fieldlist){
+
+        }
     }
 
     public void upDateData(View view) {
+
     }
 
     public void discardData(View view) {
@@ -157,6 +177,7 @@ public class DataEntryActivity extends DrawerActivity {
     private long[] insertDataField(final AppDatabase db, DataField df){
         return db.dataFieldDAO().insertAll(df);
     }
+
 
    /* private static User addUser(final AppDatabase db, User user) {
         db.userDAO().insertAll(user);

@@ -71,11 +71,11 @@ public class DrawerActivity extends AppCompatActivity {
                     case 2:
                         break;
                     case 3:
-                        Intent intent = new Intent(DrawerActivity.this, PatientHistoryActivity.class);
-                        ArrayList<String> arrayPatients = new ArrayList<String>();
+                        Intent intent = new Intent(DrawerActivity.this, DataEntryActivity.class);
+                        /*ArrayList<String> arrayPatients = new ArrayList<String>();
                         arrayPatients.add("Susan Example");
                         intent.putExtra("patient_id", 0);
-                        intent.putExtra("patients", arrayPatients);
+                        intent.putExtra("patients", arrayPatients);*/
                         startActivity(intent);
                         break;
                     case 4:

@@ -21,7 +21,7 @@
             tools:context="com.neonatal.app.src.CreateJournalActivity">
 
             <EditText
-                android:id="@+id/editTextActivity"
+                android:id="@+id/editTextHead"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -31,7 +31,7 @@
                 android:hint="Activity"
                 android:inputType="text"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/editText10"
+                app:layout_constraintBottom_toTopOf="@+id/editTextWeight"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editTextJurnalDate"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -48,15 +48,15 @@
                 android:inputType="none"
                 android:onClick="datepickerFunc"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/editText10"
-                app:layout_constraintEnd_toStartOf="@+id/editTextActivity"
+                app:layout_constraintBottom_toTopOf="@+id/editTextWeight"
+                app:layout_constraintEnd_toStartOf="@+id/editTextHead"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
                 tools:clickable="true" />
 
             <EditText
-                android:id="@+id/editText10"
+                android:id="@+id/editTextWeight"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -67,11 +67,11 @@
                 android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/checkBox"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editText11"
-                app:layout_constraintTop_toBottomOf="@+id/editTextActivity" />
+                app:layout_constraintStart_toEndOf="@+id/editTextHeight"
+                app:layout_constraintTop_toBottomOf="@+id/editTextHead" />
 
             <EditText
-                android:id="@+id/editText11"
+                android:id="@+id/editTextHeight"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -81,7 +81,7 @@
                 android:inputType="numberDecimal"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/checkBox"
-                app:layout_constraintEnd_toStartOf="@+id/editText10"
+                app:layout_constraintEnd_toStartOf="@+id/editTextWeight"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextJurnalDate" />
 
@@ -206,7 +206,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:onClick="imgCameraAccess"
-                app:layout_constraintBottom_toTopOf="@+id/editTextActivity"
+                app:layout_constraintBottom_toTopOf="@+id/editTextHead"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2"

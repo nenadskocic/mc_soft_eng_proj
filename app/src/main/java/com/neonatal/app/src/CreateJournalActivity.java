@@ -1,7 +1,6 @@
 package com.neonatal.app.src;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +36,7 @@ public class CreateJournalActivity extends DrawerActivity {
         text_treatment.setVisibility(View.GONE);
         text_Type.setVisibility(View.GONE);
         text_Reason.setVisibility(View.GONE);
-        EditText editTextact = (EditText)findViewById(R.id.editTextActivity) ;
+        EditText editTextact = (EditText)findViewById(R.id.editTextHead) ;
         EditText editTextDate = (EditText)findViewById(R.id.editTextJurnalDate) ;
         editTextact.requestFocus();
     }
