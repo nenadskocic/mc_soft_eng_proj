@@ -1,6 +1,7 @@
 package com.neonatal.app.src;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.DatePicker;
@@ -20,6 +21,7 @@ import java.util.Date;
 public class PatientProfileActivity extends DrawerActivity {
     NeonatalApp app;
     AppDatabase db;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,11 @@ public class PatientProfileActivity extends DrawerActivity {
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_patient_profile);
         View inflated = stub.inflate();
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Patient Profile");
+
 
         DatePicker datePicker_birthDate = (DatePicker) findViewById(R.id.datePicker_birthDate);
         datePicker_birthDate.setMaxDate(Calendar.getInstance().getTime().getTime());
@@ -71,7 +78,7 @@ public class PatientProfileActivity extends DrawerActivity {
 
             patient.setUserId(app.getCurrentUser());
             patient.setPersonId(personId);
-            patient.setGestationalStartDate(dateFormat.format(birthDateCalendar.getTime()));
+            patient.setGestationalStartDate(dateFormat.format(gestationalStartCalendar.getTime()));
             db.patientDAO().insertAll(patient);
 
             this.finish();
