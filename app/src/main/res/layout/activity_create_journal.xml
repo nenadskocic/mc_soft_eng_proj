@@ -20,6 +20,71 @@
             android:layout_height="match_parent"
             tools:context="com.neonatal.app.src.CreateJournalActivity">
 
+            <EditText
+                android:id="@+id/editTextHead"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:hint="Activity"
+                android:inputType="text"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/editTextWeight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editTextJurnalDate"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <EditText
+                android:id="@+id/editTextJurnalDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:ems="10"
+                android:hint="Date"
+                android:inputType="none"
+                android:onClick="datepickerFunc"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/editTextWeight"
+                app:layout_constraintEnd_toStartOf="@+id/editTextHead"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:clickable="true" />
+
+            <EditText
+                android:id="@+id/editTextWeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                android:hint="Weight"
+                android:inputType="numberDecimal"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/checkBox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editTextHeight"
+                app:layout_constraintTop_toBottomOf="@+id/editTextHead" />
+
+            <EditText
+                android:id="@+id/editTextHeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:ems="10"
+                android:hint="Height"
+                android:inputType="numberDecimal"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/checkBox"
+                app:layout_constraintEnd_toStartOf="@+id/editTextWeight"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextJurnalDate" />
+
             <TextView
                 android:id="@+id/textView_titleText"
                 android:layout_width="wrap_content"
@@ -102,10 +167,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/mybutton"
-                android:text="Save"
-                android:onClick="save"
+                android:layout_marginTop="8dp"
+                android:onClick="imgCameraAccess"
+                app:layout_constraintBottom_toTopOf="@+id/editTextHead"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/editText_bodyText"
