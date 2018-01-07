@@ -33,6 +33,8 @@ public class DataEntryActivity extends DrawerActivity {
     EditText editTextact = null;
     EditText editTextDate = null;
 
+    long[] idField = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +68,22 @@ public class DataEntryActivity extends DrawerActivity {
             for(DataField df : dataFields_list){
                 if(index < dataFielddescription.length){
                     String discription  = dataFielddescription[index];
+                    if(!discription.equals(df.getDescription())){
+                        df.setDescription(discription);
+                        insertDataField(db,df);
+                    }
                 }
                 index++;
             }
         }else{
-
+            for(DataField df : dataFields_list){
+                if(index < dataFielddescription.length){
+                    String discription  = dataFielddescription[index];
+                    df.setDescription(discription);
+                    insertDataField(db,df);
+                }
+                index++;
+            }
         }
 
     }
@@ -139,6 +152,10 @@ public class DataEntryActivity extends DrawerActivity {
 
     private List<DataField> queryDataField(final  AppDatabase db){
         return db.dataFieldDAO().getAll();
+    }
+
+    private long[] insertDataField(final AppDatabase db, DataField df){
+        return db.dataFieldDAO().insertAll(df);
     }
 
    /* private static User addUser(final AppDatabase db, User user) {
