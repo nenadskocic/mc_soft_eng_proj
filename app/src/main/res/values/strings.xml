@@ -69,7 +69,7 @@
     <string name="nicuVideo">NICU Virtual Tour</string>
     <string name="mainMenuTitle">Neonatal App</string>
     <string name="viewHistory">Baby History</string>
-    <string name="viewCalendar">Calendar</string>
+    <string name="viewAppointments">Appointments</string>
     <string name="viewJournal">Journal</string>
     <string name="patientMenuTitle">Baby Name</string>
     <string name="equip_name">NICU Equipment</string>
