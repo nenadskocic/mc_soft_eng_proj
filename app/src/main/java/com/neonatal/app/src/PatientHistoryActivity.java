@@ -3,6 +3,7 @@ package com.neonatal.app.src;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.ArrayAdapter;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 public class PatientHistoryActivity extends DrawerActivity {
     ArrayList<String> patient_history;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class PatientHistoryActivity extends DrawerActivity {
         stub.setLayoutResource(R.layout.activity_patient_history);
         View inflated = stub.inflate();
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Patient History");
 
         Intent intent = getIntent();
         ArrayList<?> patients = intent.getStringArrayListExtra("patients");
