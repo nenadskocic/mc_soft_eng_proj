@@ -20,200 +20,103 @@
             android:layout_height="match_parent"
             tools:context="com.neonatal.app.src.CreateJournalActivity">
 
-            <EditText
-                android:id="@+id/editTextHead"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:ems="10"
-                android:hint="Activity"
-                android:inputType="text"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/editTextWeight"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editTextJurnalDate"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-            <EditText
-                android:id="@+id/editTextJurnalDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:ems="10"
-                android:hint="Date"
-                android:inputType="none"
-                android:onClick="datepickerFunc"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/editTextWeight"
-                app:layout_constraintEnd_toStartOf="@+id/editTextHead"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                tools:clickable="true" />
-
-            <EditText
-                android:id="@+id/editTextWeight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:ems="10"
-                android:hint="Weight"
-                android:inputType="numberDecimal"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/checkBox"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editTextHeight"
-                app:layout_constraintTop_toBottomOf="@+id/editTextHead" />
-
-            <EditText
-                android:id="@+id/editTextHeight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:ems="10"
-                android:hint="Height"
-                android:inputType="numberDecimal"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/checkBox"
-                app:layout_constraintEnd_toStartOf="@+id/editTextWeight"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextJurnalDate" />
-
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView_titleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="70dp"
-                android:text="Create new  journal"
+                android:text="New Journal Entry"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editTextTreatment"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:ems="10"
-                android:hint="Treatment"
-                android:inputType="textPersonName"
-                android:text=""
-                android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/editTextReason"
-                app:layout_constraintEnd_toStartOf="@+id/editTextType"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <EditText
-                android:id="@+id/editTextType"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:ems="10"
-                android:hint="Type"
-                android:inputType="textPersonName"
-                android:text=""
-                android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/editTextReason"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editTextTreatment" />
-
-            <EditText
-                android:id="@+id/editTextReason"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="22dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:ems="10"
-                android:hint="Reason"
-                android:inputType="textMultiLine|textPersonName"
-                android:text=""
-                android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/button9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginEnd="145dp"
-                android:layout_marginStart="145dp"
-                android:checked="false"
-                android:onClick="showTreatment"
-                android:text="Treatment Applied"
-                app:layout_constraintBottom_toTopOf="@+id/editTextTreatment"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/mybutton"
-                android:text="Save"
-                app:layout_constraintBottom_toTopOf="@+id/button11"
-                app:layout_constraintEnd_toStartOf="@+id/button10"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/mybutton"
-                android:text="Update"
-                app:layout_constraintBottom_toTopOf="@+id/button11"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/button9" />
-
-            <Button
-                android:id="@+id/button11"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="54dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/mybutton"
-                android:text="Discard"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
-                android:layout_height="133dp"
-                android:layout_marginBottom="8dp"
+                android:layout_height="233dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:onClick="imgCameraAccess"
-                app:layout_constraintBottom_toTopOf="@+id/editTextHead"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView_titleText"
                 app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <EditText
+                android:id="@+id/editText_journalDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:ems="10"
+                android:editable="false"
+                android:inputType="none"
+                app:layout_constraintEnd_toStartOf="@id/button_pickDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <Button
+                android:id="@+id/button_pickDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/mybutton"
+                android:onClick="pickDate"
+                android:text="Pick date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/editText_journalDate"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <Spinner
+                android:id="@+id/spinner_milestone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:textAlignment="center"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/editText_bodyText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_journalDate" />
+
+            <EditText
+                android:id="@+id/editText_bodyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_milestone"
+                app:layout_constraintBottom_toTopOf="@+id/button_save"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:hint="Description"
+                />
+
+            <Button
+                android:id="@+id/button_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/mybutton"
+                android:onClick="save"
+                android:text="Save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editText_bodyText" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
-
-
 </android.support.constraint.ConstraintLayout>

@@ -5,16 +5,25 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewStub;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+
+import com.neonatal.app.src.adapters.MilestoneAdapter;
+import com.neonatal.app.src.database.AppDatabase;
+import com.neonatal.app.src.entity.Event;
+import com.neonatal.app.src.entity.JournalEntry;
+import com.neonatal.app.src.entity.Milestone;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class CreateJournalActivity extends DrawerActivity {
+    NeonatalApp app;
+    AppDatabase db;
 
     private ImageView mImageView;
     private Bitmap mImageBitmap;
@@ -23,40 +32,23 @@ public class CreateJournalActivity extends DrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_create_journal);
         super.onCreateDrawer();
+
+        app = ((NeonatalApp) getApplicationContext());
+        db = AppDatabase.getAppDatabase(getApplicationContext());
+
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_create_journal);
         View inflated = stub.inflate();
-        CheckBox chbxTreatment = (CheckBox)findViewById(R.id.checkBox);
-        chbxTreatment.setChecked(false);
-        EditText text_treatment = (EditText)findViewById(R.id.editTextTreatment);
-        EditText text_Type = (EditText)findViewById(R.id.editTextType);
-        EditText text_Reason = (EditText)findViewById(R.id.editTextReason);
-        text_treatment.setVisibility(View.GONE);
-        text_Type.setVisibility(View.GONE);
-        text_Reason.setVisibility(View.GONE);
-        EditText editTextact = (EditText)findViewById(R.id.editTextHead) ;
-        EditText editTextDate = (EditText)findViewById(R.id.editTextJurnalDate) ;
-        editTextact.requestFocus();
-    }
 
-    public void showTreatment(View view) {
-        CheckBox chbxTreatment = (CheckBox)findViewById(R.id.checkBox);
-        EditText text_treatment = (EditText)findViewById(R.id.editTextTreatment);
-        EditText text_Type = (EditText)findViewById(R.id.editTextType);
-        EditText text_Reason = (EditText)findViewById(R.id.editTextReason);
+        ArrayList<Milestone> milestones = new ArrayList(db.milestoneDAO().getAll());
 
-        if(!chbxTreatment.isChecked()){
-            text_treatment.setVisibility(View.GONE);
-            text_Type.setVisibility(View.GONE);
-            text_Reason.setVisibility(View.GONE);
+        MilestoneAdapter adapter = new MilestoneAdapter(
+                this, android.R.layout.simple_spinner_item, milestones);
 
-        }else{
-            text_treatment.setVisibility(View.VISIBLE);
-            text_Type.setVisibility(View.VISIBLE);
-            text_Reason.setVisibility(View.VISIBLE);
-        }
+        Spinner spinner_milestone = (Spinner) findViewById(R.id.spinner_milestone);
+        spinner_milestone.setAdapter(adapter);
+
     }
 
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -78,25 +70,38 @@ public class CreateJournalActivity extends DrawerActivity {
 
     }
 
-    public void datepickerFunc(View view) {
+    public void pickDate(View view) {
         new DatePickerDialog(CreateJournalActivity.this, date, myCalendar
                 .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
     private void updateLabel() {
-        EditText editText = (EditText)findViewById(R.id.editTextJurnalDate) ;
-        String myFormat = "MM/dd/yy"; //In which you need put here
+        EditText editText = (EditText)findViewById(R.id.editText_journalDate) ;
+        String myFormat = "yyyy-MM-dd"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         editText.setText(sdf.format(myCalendar.getTime()));
     }
-    //@Override
-    /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            mImageView.setImageBitmap(imageBitmap);
-        }
-    }*/
+
+    public void save(View view) {
+        EditText editText_bodyText = (EditText) findViewById(R.id.editText_bodyText);
+        EditText editText_journalDate = (EditText) findViewById(R.id.editText_journalDate);
+        Spinner spinner_milestone = (Spinner) findViewById(R.id.spinner_milestone);
+
+        JournalEntry journalEntry = new JournalEntry();
+        journalEntry.setImagePath("");
+        journalEntry.setBodyText(editText_bodyText.getText().toString());
+        journalEntry.setMilestoneId(((Milestone)spinner_milestone.getSelectedItem()).getId());
+        int journalEntryId = (int) db.journalEntryDAO().insertAll(journalEntry)[0];
+
+        Event event = new Event();
+        event.setEventDateTime(editText_journalDate.getText().toString());
+        event.setPersonId(db.patientDAO().getById(app.getCurrentPatient()).getPersonId());
+        event.setEventType("JournalEntry");
+        event.setEventChildId(journalEntryId);
+        db.eventDAO().insertAll(event);
+
+        this.finish();
+    }
 }
