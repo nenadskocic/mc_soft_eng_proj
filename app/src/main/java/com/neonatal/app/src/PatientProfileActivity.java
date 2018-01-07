@@ -78,7 +78,7 @@ public class PatientProfileActivity extends DrawerActivity {
 
             patient.setUserId(app.getCurrentUser());
             patient.setPersonId(personId);
-            patient.setGestationalStartDate(dateFormat.format(birthDateCalendar.getTime()));
+            patient.setGestationalStartDate(dateFormat.format(gestationalStartCalendar.getTime()));
             db.patientDAO().insertAll(patient);
 
             this.finish();
