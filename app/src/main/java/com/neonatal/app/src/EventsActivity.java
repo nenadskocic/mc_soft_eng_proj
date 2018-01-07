@@ -3,6 +3,7 @@ package com.neonatal.app.src;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.ArrayAdapter;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 
 public class EventsActivity extends DrawerActivity {
 
-
+    Toolbar toolbar;
     String [] titles = {"Test", "test", "test"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,10 @@ public class EventsActivity extends DrawerActivity {
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_events);
         View inflated = stub.inflate();
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Different Events");
 
         Intent intent = getIntent();
         String date = intent.getStringExtra("date");
