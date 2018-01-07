@@ -8,7 +8,7 @@
     android:background="@drawable/mybutton">
 
     <TextView
-        android:id="@+id/titleText"
+        android:id="@+id/textView_titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="163dp"
@@ -25,53 +25,53 @@
         tools:fontFamily="monospace" />
 
     <Button
-        android:id="@+id/btn_history"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/mybutton"
-        android:onClick="ViewHistory"
-        android:text="@string/viewHistory"
-        android:textSize="@dimen/lblSize"
-        app:layout_constraintTop_toBottomOf="@+id/titleText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_calendar"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/mybutton"
-        android:onClick="ViewCalendar"
-        android:text="@string/viewCalendar"
-        android:textSize="@dimen/lblSize"
-        app:layout_constraintTop_toBottomOf="@+id/btn_history"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/btn_journal"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/mybutton"
         android:onClick="ViewJournal"
         android:text="@string/viewJournal"
         android:textSize="@dimen/lblSize"
-        app:layout_constraintTop_toBottomOf="@+id/btn_calendar"
+        app:layout_constraintBottom_toTopOf="@+id/btn_appointments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/btn_appointments"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/mybutton"
+        android:onClick="ViewAppointments"
+        android:text="@string/viewAppointments"
+        android:textSize="@dimen/lblSize"
+        app:layout_constraintBottom_toTopOf="@+id/btn_history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_history"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/mybutton"
+        android:onClick="ViewHistory"
+        android:text="@string/viewHistory"
+        android:textSize="@dimen/lblSize"
+        app:layout_constraintBottom_toTopOf="@+id/textView_copyrightText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
-        android:id="@+id/copyrightText"
+        android:id="@+id/textView_copyrightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
