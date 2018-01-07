@@ -37,7 +37,7 @@ public class PatientProfileActivity extends DrawerActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Patient Profile");
+        getSupportActionBar().setTitle("Baby Profile");
 
 
         DatePicker datePicker_birthDate = (DatePicker) findViewById(R.id.datePicker_birthDate);
