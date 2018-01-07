@@ -1,21 +1,23 @@
 package com.neonatal.app.src;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewStub;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
+import com.neonatal.app.src.adapters.MilestoneAdapter;
 import com.neonatal.app.src.database.AppDatabase;
 import com.neonatal.app.src.entity.Event;
 import com.neonatal.app.src.entity.JournalEntry;
+import com.neonatal.app.src.entity.Milestone;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -39,6 +41,13 @@ public class CreateJournalActivity extends DrawerActivity {
         stub.setLayoutResource(R.layout.activity_create_journal);
         View inflated = stub.inflate();
 
+        ArrayList<Milestone> milestones = new ArrayList(db.milestoneDAO().getAll());
+
+        MilestoneAdapter adapter = new MilestoneAdapter(
+                this, android.R.layout.simple_spinner_item, milestones);
+
+        Spinner spinner_milestone = (Spinner) findViewById(R.id.spinner_milestone);
+        spinner_milestone.setAdapter(adapter);
 
     }
 
@@ -78,11 +87,12 @@ public class CreateJournalActivity extends DrawerActivity {
     public void save(View view) {
         EditText editText_bodyText = (EditText) findViewById(R.id.editText_bodyText);
         EditText editText_journalDate = (EditText) findViewById(R.id.editText_journalDate);
+        Spinner spinner_milestone = (Spinner) findViewById(R.id.spinner_milestone);
 
         JournalEntry journalEntry = new JournalEntry();
         journalEntry.setImagePath("");
         journalEntry.setBodyText(editText_bodyText.getText().toString());
-        journalEntry.setMilestoneId(0);
+        journalEntry.setMilestoneId(((Milestone)spinner_milestone.getSelectedItem()).getId());
         int journalEntryId = (int) db.journalEntryDAO().insertAll(journalEntry)[0];
 
         Event event = new Event();
