@@ -13,25 +13,16 @@ import android.widget.TextView;
  * Created by Nenad on 2017-12-12.
  */
 
-public class EquipDetailActivity extends DrawerActivity {
+public class EquipDetailActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
     ImageView equipImage;
-    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //set drawer list
-        super.onCreateDrawer();
 
-        ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
-        stub.setLayoutResource(R.layout.activity_equip_details);
-        View inflated = stub.inflate();
-        //set drawer list
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setTitle("");
+        setContentView(R.layout.activity_equip_details);
 
         equipImage = findViewById(R.id.imageView);
         mToolbar = findViewById(R.id.toolbar2);
@@ -41,7 +32,6 @@ public class EquipDetailActivity extends DrawerActivity {
 
         if(bundle != null) {
             mToolbar.setTitle(bundle.getString("EquipName"));
-            getSupportActionBar().setTitle(bundle.getString("EquipName"));
 
             if(mToolbar.getTitle().toString().equalsIgnoreCase("Cardiopulmonary Monitor")) {
                 equipImage.setImageDrawable(ContextCompat.getDrawable(EquipDetailActivity.this,
