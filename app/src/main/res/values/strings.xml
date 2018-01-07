@@ -92,6 +92,7 @@
         or medications.</string>
     <string name="logo">Logo</string>
     <string name="welcome_to_nicu">Welcome to NICU</string>
+    <string name="enter_new_data">Enter new data</string>
     <string-array name="equipmentArr">
 
         <item>A</item>
