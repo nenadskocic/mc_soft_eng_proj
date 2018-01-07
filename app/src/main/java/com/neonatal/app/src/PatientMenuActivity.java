@@ -114,7 +114,7 @@ public class PatientMenuActivity extends AppCompatActivity {
     }
 
     public void ViewHistory(View v){
-        Intent childIntent = new Intent(PatientMenuActivity.this, PatientHistoryActivity.class);
+        Intent childIntent = new Intent(PatientMenuActivity.this, DataEntryActivity.class);
         startActivity(childIntent);
     }
 
