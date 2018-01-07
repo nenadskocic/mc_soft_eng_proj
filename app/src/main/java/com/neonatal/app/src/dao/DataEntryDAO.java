@@ -20,7 +20,7 @@ public interface DataEntryDAO {
     List<DataEntry> getAll();
 
     @Insert
-    void insertAll(DataEntry... dataEntries);
+    long[] insertAll(DataEntry... dataEntries);
 
     @Update
     void update(DataEntry dataEntry);

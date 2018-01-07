@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.neonatal.app.src.database.AppDatabase;
 import com.neonatal.app.src.entity.DataEntry;
 import com.neonatal.app.src.entity.DataField;
+import com.neonatal.app.src.entity.Event;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,6 +27,7 @@ public class DataEntryActivity extends DrawerActivity {
     private Bitmap mImageBitmap;
     Calendar myCalendar = Calendar.getInstance();
     AppDatabase db = null;
+    NeonatalApp app;
 
     EditText text_treatment = null;
     EditText text_Type = null;
@@ -51,6 +53,9 @@ public class DataEntryActivity extends DrawerActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_create_journal);
         super.onCreateDrawer();
+
+        app = (NeonatalApp)getApplicationContext();
+
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_data_entry);
         View inflated = stub.inflate();
@@ -169,7 +174,7 @@ public class DataEntryActivity extends DrawerActivity {
         };
 
         int index = 0;
-
+        long[] ids = new long[fieldlist.size()];
         for(DataField df : fieldlist){
             dataArray[index] = new DataEntry();
            // if(!fields[index].getText().toString().trim().equals("")){
@@ -177,14 +182,23 @@ public class DataEntryActivity extends DrawerActivity {
                 if(df.getDescription().trim().equals(dataFielddescription[i])){
                     dataArray[i].setValue(fields[i].getText().toString());
                     dataArray[i].setDataFieldId(df.getId());
-                    db.dataEntryDAO().insertAll(dataArray[i]);
+                    ids[index] = db.dataEntryDAO().insertAll(dataArray[i])[0];
                     break;
                 }else{
                     continue;
                 }
             }
+            index++;
         }
 
+        for(int i = 0; i < ids.length; i++){
+            Event event = new Event();
+            event.setEventType("dataEntry");
+            event.setEventDateTime(editTextDate.getText().toString());
+            event.setPersonId(app.getCurrentPatient());
+            event.setEventChildId((int)ids[i]);
+            db.eventDAO().insertAll(event);
+        }
 
     }
 

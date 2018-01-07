@@ -16,6 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 
+import com.neonatal.app.src.entity.Patient;
+import com.neonatal.app.src.entity.Person;
+
 import java.util.ArrayList;
 
 public class DrawerActivity extends AppCompatActivity {
@@ -24,6 +27,8 @@ public class DrawerActivity extends AppCompatActivity {
     public ListView drawerList;
     public String[] layers;
     private ActionBarDrawerToggle drawerToggle;
+   //private Person person = new Person();
+    //private Patient patient = new Patient();
    // private Map map;
 
     protected void onCreateDrawer() {
