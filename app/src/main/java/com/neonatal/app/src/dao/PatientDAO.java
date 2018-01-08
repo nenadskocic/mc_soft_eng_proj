@@ -31,6 +31,6 @@ public interface PatientDAO {
     @Query("SELECT * FROM patient where id = :id LIMIT 1")
     Patient getById(int id);
 
-    @Query("SELECT * FROM patient WHERE userId = :userId")
-    List<Patient> getByUserId(int userId);
+    @Query("SELECT * FROM patient where userId = :id")
+    List<Patient> getByUserId(int id);
 }

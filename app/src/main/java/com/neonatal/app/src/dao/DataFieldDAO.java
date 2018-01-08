@@ -19,6 +19,9 @@ public interface DataFieldDAO {
     @Query("SELECT * FROM DataField")
     List<DataField> getAll();
 
+    @Query("SELECT * FROM DataField Where id = :id")
+    DataField getbyDataField(int id);
+
     @Insert
     long[] insertAll(DataField... dataFields);
 

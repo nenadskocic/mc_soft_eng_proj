@@ -1,23 +1,33 @@
 package com.neonatal.app.src;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.neonatal.app.src.database.AppDatabase;
 import com.neonatal.app.src.entity.DataEntry;
 import com.neonatal.app.src.entity.DataField;
 import com.neonatal.app.src.entity.Event;
+import com.neonatal.app.src.entity.Patient;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,6 +57,9 @@ public class DataEntryActivity extends DrawerActivity {
     long[] idField = null;
     String[] dataFielddescription = new String[]{"Height", "Weight", "Head"};
     String[] dataFieldUnit = new String[]{"cm", "lb", "cm"};
+
+
+    private EditText[] fields = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +97,14 @@ public class DataEntryActivity extends DrawerActivity {
         editHeight = (EditText)findViewById(R.id.editTextHeight);
         editWeight = (EditText)findViewById(R.id.editTextWeight);
 
+
+        fields = new EditText[]{
+                editHeight,
+                editWeight,
+                editHead
+        };
+
+
         List<DataField> dataFields_list = queryDataField(db);
         int index = 0;
         if(dataFields_list.size() > 0){
@@ -109,6 +130,22 @@ public class DataEntryActivity extends DrawerActivity {
             }
         }
 
+       /* editTextDate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });*/
     }
 
     public void showTreatment(View view) {
@@ -149,9 +186,11 @@ public class DataEntryActivity extends DrawerActivity {
     }
 
     public void datepickerFunc(View view) {
-        new DatePickerDialog(DataEntryActivity.this, date, myCalendar
+        DatePickerDialog dpd =  new DatePickerDialog(DataEntryActivity.this, date, myCalendar
                 .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                myCalendar.get(Calendar.DAY_OF_MONTH));
+
+        dpd.show();
     }
 
     private void updateLabel() {
@@ -167,11 +206,7 @@ public class DataEntryActivity extends DrawerActivity {
 
         DataEntry[] dataArray = new DataEntry[fieldlist.size()];
 
-        EditText[] fields = new EditText[]{
-            editHeight,
-            editWeight,
-            editHead
-        };
+
 
         int index = 0;
         long[] ids = new long[fieldlist.size()];
@@ -200,6 +235,19 @@ public class DataEntryActivity extends DrawerActivity {
             db.eventDAO().insertAll(event);
         }
 
+        Dictionary<Integer, String> datas = getData();
+        Enumeration<Integer> keyEnumeration = datas.keys();
+        ArrayList<String> data = new ArrayList<>();
+        for(Enumeration e = datas.elements(); e.hasMoreElements();){
+            String test = e.nextElement().toString();
+            data.add(test);
+        }
+        ArrayList<String> textdata = data;
+        Intent intent = new Intent(DataEntryActivity.this, ReadDataEntryActivity.class);
+
+        intent.putExtra("data", data);
+
+        startActivity(intent);
     }
 
     public void upDateData(View view) {
@@ -207,6 +255,7 @@ public class DataEntryActivity extends DrawerActivity {
     }
 
     public void discardData(View view) {
+        this.finish();
     }
 
     private List<DataField> queryDataField(final  AppDatabase db){
@@ -215,6 +264,55 @@ public class DataEntryActivity extends DrawerActivity {
 
     private long[] insertDataField(final AppDatabase db, DataField df){
         return db.dataFieldDAO().insertAll(df);
+    }
+
+    public void retriveData(View view) {
+        getData();
+    }
+
+    public Dictionary<Integer, String> getData(){
+        Dictionary<Integer, String> dataDictionary = new Hashtable<>();
+        //Patient p = db.patientDAO().getById(app.getCurrentPatient());
+        String dateTimestr = editTextDate.getText().toString();
+        List<Event> eList = db.eventDAO().getByPersonIdAndTimeAndType(app.getCurrentPatient(), dateTimestr, "dataEntry");
+
+
+        for(Event e : eList){
+
+            DataEntry dataEntry = db.dataEntryDAO().
+                    getById(e.getEventChildId());
+
+            // DataField df = db.dataFieldDAO().getbyDataField(dataEntry.getDataFieldId());
+            String aRecord = dataEntry.getValue();// + df.getDataType();
+            dataDictionary.put(dataEntry.getDataFieldId(), aRecord);
+        }
+
+
+
+        int idx = 0;
+        if(dataDictionary.size() > 0){
+            Enumeration<Integer> keyEnumeration = dataDictionary.keys();
+                    /**/
+            for(Enumeration e = dataDictionary.elements(); e.hasMoreElements();) {
+                if(idx >= dataDictionary.size())
+                {
+                    break;
+                }
+                else
+                {
+                    if(idx <  fields.length){
+                        //String test = dataDictionary.;
+                        String test = e.nextElement().toString();
+                        fields[idx].setText(test);
+                        Toast.makeText(this, fields[idx].getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                idx++;
+            }
+        }
+
+        return dataDictionary;
     }
 
 
