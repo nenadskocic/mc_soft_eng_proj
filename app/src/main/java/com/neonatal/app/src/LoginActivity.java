@@ -130,8 +130,6 @@ public class LoginActivity extends AppCompatActivity {
         String inputUsername = textView_username.getText().toString();
         String inputPassword = textView_password.getText().toString();
 
-        db = AppDatabase.getAppDatabase(getApplicationContext());
-
         User user = null;
         if(!inputUsername.equals("")){
             user = getUserByUsername(db, inputUsername);

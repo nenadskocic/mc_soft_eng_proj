@@ -6,11 +6,9 @@
     <string name="username">Username</string>
     <string name="copyright_2017">Copyright-2017</string>
     <string name="Neanato_App">Neonatal Nurseries</string>
-    <string name="emailSample">Yourname@Gmail.com</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
-    <string name="phone">Phone: NNN-NNN-NNNN</string>
-    <string name="minimum_6_digit">minimum 6 digit</string>
+    <string name="phone">Phone (XXX-XXX-XXXX)</string>
     <string name="back_to_login">Back To Login</string>
     <string name="title_activity_profile">ProfileActivity</string>
 
@@ -96,6 +94,9 @@
     <string name="birth_date_title">Birth Date:</string>
     <string name="age_title">Age:</string>
     <string name="enter_new_data">Enter new data</string>
+    <string name="email_hint">Email (yourname@example.com)</string>
+    <string name="username_hint">Username (6+ characters)</string>
+    <string name="password_hint">Password (6+ characters)</string>
     <string-array name="equipmentArr">
 
         <item>A</item>
