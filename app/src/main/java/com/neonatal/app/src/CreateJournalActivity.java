@@ -9,6 +9,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.neonatal.app.src.adapters.MilestoneAdapter;
 import com.neonatal.app.src.database.AppDatabase;
@@ -85,23 +86,43 @@ public class CreateJournalActivity extends DrawerActivity {
     }
 
     public void save(View view) {
-        EditText editText_bodyText = (EditText) findViewById(R.id.editText_bodyText);
+        if (validateForm()) {
+            EditText editText_bodyText = (EditText) findViewById(R.id.editText_bodyText);
+            EditText editText_journalDate = (EditText) findViewById(R.id.editText_journalDate);
+            Spinner spinner_milestone = (Spinner) findViewById(R.id.spinner_milestone);
+
+            JournalEntry journalEntry = new JournalEntry();
+            journalEntry.setImagePath("");
+            journalEntry.setBodyText(editText_bodyText.getText().toString());
+            journalEntry.setMilestoneId(((Milestone)spinner_milestone.getSelectedItem()).getId());
+            int journalEntryId = (int) db.journalEntryDAO().insertAll(journalEntry)[0];
+
+            Event event = new Event();
+            event.setEventDateTime(editText_journalDate.getText().toString());
+            event.setPersonId(db.patientDAO().getById(app.getCurrentPatient()).getPersonId());
+            event.setEventType("JournalEntry");
+            event.setEventChildId(journalEntryId);
+            db.eventDAO().insertAll(event);
+
+            this.finish();
+        }
+    }
+
+    private boolean validateForm() {
+        //Date
         EditText editText_journalDate = (EditText) findViewById(R.id.editText_journalDate);
-        Spinner spinner_milestone = (Spinner) findViewById(R.id.spinner_milestone);
+        if (editText_journalDate.getText().toString().length() <= 0) {
+            Toast.makeText(this, "Journal date is required", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
-        JournalEntry journalEntry = new JournalEntry();
-        journalEntry.setImagePath("");
-        journalEntry.setBodyText(editText_bodyText.getText().toString());
-        journalEntry.setMilestoneId(((Milestone)spinner_milestone.getSelectedItem()).getId());
-        int journalEntryId = (int) db.journalEntryDAO().insertAll(journalEntry)[0];
+        //BodyText
+        EditText editText_bodyText = (EditText) findViewById(R.id.editText_bodyText);
+        if (editText_bodyText.getText().toString().length() <= 0) {
+            Toast.makeText(this, "Journal body text is required", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
-        Event event = new Event();
-        event.setEventDateTime(editText_journalDate.getText().toString());
-        event.setPersonId(db.patientDAO().getById(app.getCurrentPatient()).getPersonId());
-        event.setEventType("JournalEntry");
-        event.setEventChildId(journalEntryId);
-        db.eventDAO().insertAll(event);
-
-        this.finish();
+        return true;
     }
 }

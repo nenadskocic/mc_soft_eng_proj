@@ -49,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void Register(View v){
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-        this.finish();
     }
 
     private static User getUserByUsername(AppDatabase db, String username) {
@@ -142,8 +141,6 @@ public class LoginActivity extends AppCompatActivity {
 
         String inputUsername = textView_username.getText().toString();
         String inputPassword = textView_password.getText().toString();
-
-        db = AppDatabase.getAppDatabase(getApplicationContext());
 
         User user = null;
         if(!inputUsername.equals("")){
