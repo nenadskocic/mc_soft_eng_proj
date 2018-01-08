@@ -22,8 +22,8 @@ public interface JournalEntryDAO {
     @Query("SELECT * FROM JournalEntry WHERE id IN(:events)")
     List<JournalEntry> getUsersJournals(List<Integer> events);
 
-    @Query("SELECT * FROM JournalEntry WHERE id = :id AND milestoneId = :milestoneId")
-    List<JournalEntry> getUsersJournalByMilestoneId(int id, int milestoneId);
+    @Query("SELECT * FROM JournalEntry WHERE id IN (:journalIDs) AND milestoneId = :milestoneId")
+    List<JournalEntry> getUsersJournalByMilestoneId(List<Integer> journalIDs, int milestoneId);
 
     @Insert
     long[] insertAll(JournalEntry... journalEntries);
