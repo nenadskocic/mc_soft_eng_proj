@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         person.setPhone("905-777-7777");
         addPerson(db, person);
 
-        //Event
+        /*//Event
         Event event = new Event();
         event.setEventDateTime("2017-12-21 13:14:15");
         event.setEventType("JournalEntry");
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
         JournalEntry journalEntry = new JournalEntry();
         journalEntry.setBodyText("Today Susan had her first breastfeeding!");
         journalEntry.setMilestoneId(1);
-        addJournalEntry(db, journalEntry);
+        addJournalEntry(db, journalEntry);*/
 
         //Milestone
         String[] milestoneDescriptions = {
@@ -159,6 +159,13 @@ public class LoginActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
+        } else {
+            Context context = getApplicationContext();
+            CharSequence text = "Wrong username/password";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
 
 
