@@ -45,9 +45,11 @@ public class RegisterActivity extends AppCompatActivity {
         //String key = "";
         Enumeration<String> keyEnumeration = inputs.keys();
 
+        boolean isvalid = false;
+
         for(Enumeration e = inputs.keys(); e.hasMoreElements();){
             String key = e.nextElement().toString();
-            registerUserRecords(key, person, user);
+            isvalid = registerUserRecords(key, person, user);
         }
 
 
@@ -55,8 +57,11 @@ public class RegisterActivity extends AppCompatActivity {
         user.setPersonId((int)theperson);
         addUser(db,user);
 
-        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-        this.finish();
+        if(isvalid){
+            this.finish();
+        }else{
+
+        }
     }
 
 
@@ -69,12 +74,12 @@ public class RegisterActivity extends AppCompatActivity {
         return  db.personDAO().insertAll(person)[0];
     }
 
-    private void registerUserRecords(String key, Person person, User user){
+    private boolean registerUserRecords(String key, Person person, User user){
 
         switch (key){
             case "password":
                 if(inputs.get(key).getText().toString().length() < 6){
-                    return;
+                    return false;
                 }
                 user.setPassword(inputs.get(key).getText().toString());
                 break;
@@ -84,13 +89,13 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if (inputs.get(key).getText().toString().
                             replaceAll("[\\s\\-()]", "").length() < 10) {
-                        return;
+                        return false;
                     } else {
                         try {
                             long phone = Long.parseLong(inputs.get("phone").getText().toString().
                                     replaceAll("[\\s\\-()]", ""));
                         } catch (Exception ex) {
-                            return;
+                            return false;
                         }
                     }
                 }
@@ -98,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                 break;
             default:
                 if(inputs.get(key).getText().toString().trim().length() == 0){
-                    return;
+                    return false;
                 }
                 switch (key) {
                     case "username":
@@ -114,6 +119,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 break;
         }
+
+        return true;
 
     }
 }

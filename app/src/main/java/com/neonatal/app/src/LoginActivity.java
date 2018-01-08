@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void Register(View v){
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-        this.finish();
     }
 
     private static User getUserByUsername(AppDatabase db, String username) {
