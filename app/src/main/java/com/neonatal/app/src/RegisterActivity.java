@@ -48,26 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
             user.setPassword(inputs.get("password").getText().toString());
             db.userDAO().insertAll(user);
 
-        //String key = "";
-        Enumeration<String> keyEnumeration = inputs.keys();
-
-        boolean isvalid = false;
-
-        for(Enumeration e = inputs.keys(); e.hasMoreElements();){
-            String key = e.nextElement().toString();
-            isvalid = registerUserRecords(key, person, user);
             this.finish();
-        }
-
-
-        long theperson  = addPerson(db, person);
-        user.setPersonId((int)theperson);
-        addUser(db,user);
-
-        if(isvalid){
-            this.finish();
-        }else{
-
         }
     }
 
@@ -81,21 +62,10 @@ public class RegisterActivity extends AppCompatActivity {
         return  db.personDAO().insertAll(person)[0];
     }
 
-    private boolean registerUserRecords(String key, Person person, User user){
     private boolean validateForm(){
         final String EMAIL_REGEX = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
         final String PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$";
 
-        switch (key){
-            case "password":
-                if(inputs.get(key).getText().toString().length() < 6){
-                    return false;
-                }
-                user.setPassword(inputs.get(key).getText().toString());
-                break;
-            case "phone":
-                if(inputs.get(key).getText().toString().
-                        replaceAll("[\\s\\-()]", "").length() > 0) {
         //Username
         if (inputs.get("username").getText().toString().length() < 6) {
             Toast.makeText(this, "Username must be at least 6 characters", Toast.LENGTH_SHORT).show();
@@ -107,44 +77,11 @@ public class RegisterActivity extends AppCompatActivity {
             return false;
         }
 
-                    if (inputs.get(key).getText().toString().
-                            replaceAll("[\\s\\-()]", "").length() < 10) {
-                        return false;
-                    } else {
-                        try {
-                            long phone = Long.parseLong(inputs.get("phone").getText().toString().
-                                    replaceAll("[\\s\\-()]", ""));
-                        } catch (Exception ex) {
-                            return false;
-                        }
-                    }
-                }
-                person.setPhone(inputs.get(key).getText().toString());
-                break;
-            default:
-                if(inputs.get(key).getText().toString().trim().length() == 0){
-                    return false;
-                }
-                switch (key) {
-                    case "username":
-                        user.setUsername(inputs.get(key).getText().toString());
-                        person.setEmail(inputs.get(key).getText().toString());
-                        break;
-                    case "fname":
-                        person.setFirstName(inputs.get(key).getText().toString());
-                        break;
-                    case "lname":
-                        person.setLastName(inputs.get(key).getText().toString());
-                        break;
-                }
-                break;
         //Password
         if (inputs.get("password").getText().toString().length() < 6) {
             Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
             return false;
         }
-
-        return true;
 
         //First Name
         if (inputs.get("fname").getText().toString().length() <= 0) {
