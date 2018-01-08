@@ -27,7 +27,7 @@ import com.neonatal.app.src.entity.Milestone;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JournalActivity extends DrawerActivity implements ListView.OnItemClickListener{
+public class JournalActivity extends DrawerActivity implements ListView.OnItemClickListener, MilestonePicker.MilestoneListener{
 
 
     /**
@@ -45,7 +45,7 @@ public class JournalActivity extends DrawerActivity implements ListView.OnItemCl
     private ArrayList<Event> events = null;
     AppDatabase db = null;
     NeonatalApp app = null;
-    //private String date;
+    private int milestone;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -98,7 +98,8 @@ public class JournalActivity extends DrawerActivity implements ListView.OnItemCl
         fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));;
+                MilestonePicker milestonePicker = new MilestonePicker();
+                milestonePicker.show(getFragmentManager(), "Title");
             }
         });
 
@@ -141,6 +142,21 @@ public class JournalActivity extends DrawerActivity implements ListView.OnItemCl
         }
 
 
+    }
+
+    @Override
+    public void returnMilestone(int milestone) {
+        this.milestone = milestone;
+
+        this.journals = (ArrayList) db.journalEntryDAO().getUsersJournalByMilestoneId(app.getCurrentPatient(), milestone);
+
+        ListView journal_entries = (ListView) findViewById(R.id.lv_journals);
+
+        JournalsAdapter journalsAdapter = new JournalsAdapter(this, this.journals);
+
+        journal_entries.setAdapter(journalsAdapter);
+
+        journal_entries.setOnItemClickListener(this);
     }
 
 

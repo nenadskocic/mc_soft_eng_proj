@@ -2,6 +2,7 @@ package com.neonatal.app.src;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,7 +32,16 @@ public class LoginActivity extends AppCompatActivity {
         app = ((NeonatalApp) getApplicationContext());
         db = AppDatabase.getAppDatabase(getApplicationContext());
 
-        populateWithTestData(db);
+        SharedPreferences startPreference = getSharedPreferences("START_UP", 0);
+
+        if(!startPreference.contains("FIRST_RUN"))
+        {
+            populateWithTestData(db);
+            SharedPreferences.Editor editor = startPreference.edit();
+            editor.putBoolean("FIRST_RUN", true);
+            editor.commit();
+        }
+
 
         //EditText editText = (EditText) findViewById(R.id.txt_Username);
         //editText.setText(getDatabasePath("neonatal-database").getAbsolutePath());
@@ -74,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private static void populateWithTestData(AppDatabase db) {
+
 
         //User
         User user = new User();

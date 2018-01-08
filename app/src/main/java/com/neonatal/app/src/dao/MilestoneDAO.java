@@ -22,6 +22,9 @@ public interface MilestoneDAO {
     @Query("SELECT * FROM Milestone WHERE id = :id")
     List<Milestone> getById(int id);
 
+    @Query("SELECT description FROM Milestone")
+    List<String> getAllMilestoneNames();
+
     @Insert
     void insertAll(Milestone... milestones);
 
