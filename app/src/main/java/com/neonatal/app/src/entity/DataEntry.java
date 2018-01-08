@@ -16,9 +16,6 @@ public class DataEntry {
     @ColumnInfo(name="dataFieldId")
     private int dataFieldId;
 
-    @ColumnInfo(name="dataType")
-    private String dataType;
-
     @ColumnInfo(name="value")
     private String value;
 
@@ -38,13 +35,7 @@ public class DataEntry {
         this.dataFieldId = dataFieldId;
     }
 
-    public String getDataType() {
-        return dataType;
-    }
 
-    public void setDataType(String dataType) {
-        this.dataType = dataType;
-    }
 
     public String getValue() {
         return value;
