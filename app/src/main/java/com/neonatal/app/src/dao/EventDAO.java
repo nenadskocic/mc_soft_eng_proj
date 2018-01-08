@@ -19,6 +19,15 @@ public interface EventDAO {
     @Query("SELECT * FROM Event")
     List<Event> getAll();
 
+    @Query("SELECT * FROM Event WHERE personId = :personId ORDER BY eventDateTime DESC")
+    List<Event> getPatientsEvents(int personId);
+
+    @Query("SELECT eventChildId FROM Event WHERE personId = :personId AND eventType LIKE :eventType ORDER BY eventDateTime DESC")
+    List<Integer> getPatientsJournalEvents(int personId, String eventType);
+
+    @Query("SELECT * FROM Event WHERE eventChildId = :childId AND eventType  LIKE :eventType ")
+    List<Event> getEventByChildId(int childId, String eventType);
+
     @Insert
     void insertAll(Event... events);
 

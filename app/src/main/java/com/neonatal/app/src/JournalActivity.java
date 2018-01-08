@@ -10,15 +10,25 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.view.ViewStub;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-public class JournalActivity extends DrawerActivity {
+import com.neonatal.app.src.adapters.JournalsAdapter;
+import com.neonatal.app.src.database.AppDatabase;
+import com.neonatal.app.src.entity.Event;
+import com.neonatal.app.src.entity.JournalEntry;
+import com.neonatal.app.src.entity.Milestone;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class JournalActivity extends DrawerActivity implements ListView.OnItemClickListener, MilestonePicker.MilestoneListener{
+
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -28,12 +38,19 @@ public class JournalActivity extends DrawerActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+   // private SectionsPagerAdapter mSectionsPagerAdapter;
+
+
+    private ArrayList<JournalEntry> journals = null;
+    private ArrayList<Event> events = null;
+    AppDatabase db = null;
+    NeonatalApp app = null;
+    private int milestone;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    private ViewPager mViewPager;
+   // private ViewPager mViewPager;
     Toolbar toolbar;
 
     @Override
@@ -54,17 +71,35 @@ public class JournalActivity extends DrawerActivity {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        //mViewPager = (ViewPager) findViewById(R.id.container);
+        //mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        FloatingActionButton fbtn = (FloatingActionButton) findViewById(R.id.addnew);
+
+        this.app = ((NeonatalApp) getApplicationContext());
+        this.db = AppDatabase.getAppDatabase(getApplicationContext());
+
+        this.events = (ArrayList) db.eventDAO().getPatientsEvents(app.getCurrentPatient());
+        ArrayList<Integer>  journalEvents = (ArrayList) db.eventDAO().getPatientsJournalEvents(db.patientDAO().getById(app.getCurrentPatient()).getPersonId(), "JournalEntry");
+
+        this.journals = (ArrayList) db.journalEntryDAO().getUsersJournals(journalEvents);
+
+        ListView journal_entries = (ListView) findViewById(R.id.lv_journals);
+
+        JournalsAdapter journalsAdapter = new JournalsAdapter(this, this.journals);
+
+        journal_entries.setAdapter(journalsAdapter);
+
+        journal_entries.setOnItemClickListener(this);
+
+        FloatingActionButton fbtn = (FloatingActionButton) findViewById(R.id.search);
         fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));;
+                MilestonePicker milestonePicker = new MilestonePicker();
+                milestonePicker.show(getFragmentManager(), "Title");
             }
         });
 
@@ -73,10 +108,69 @@ public class JournalActivity extends DrawerActivity {
         fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));;
+                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));
+                ArrayList<Integer>  journalEvents = (ArrayList) db.eventDAO().getPatientsJournalEvents(app.getCurrentPatient(), "JournalEntry");
+
+                journals = (ArrayList) db.journalEntryDAO().getUsersJournals(journalEvents);
+
+                ListView journal_entries = (ListView) findViewById(R.id.lv_journals);
+
+                JournalsAdapter journalsAdapter = new JournalsAdapter(getBaseContext(), journals);
+
+                journal_entries.setAdapter(journalsAdapter);
+
+
             }
         });
     }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        JournalEntry entry = this.journals.get(position);
+        ArrayList<Event> eventResults = (ArrayList<Event>) db.eventDAO().getEventByChildId(entry.getId(), "JournalEntry");
+        Event event = eventResults.get(0);
+        ArrayList<Milestone> milestones;
+        Milestone milestone = null;
+        if(entry.getMilestoneId() != 0)
+        {
+            milestones = (ArrayList<Milestone>) db.milestoneDAO().getById(entry.getMilestoneId());
+            milestone = milestones.get(0);
+        }
+
+        if(entry != null)
+        {
+            Intent intent = new Intent(this, DisplayJournalActivity.class);
+
+            //intent.putExtra("image", entry.getImagePath());
+            intent.putExtra("body", entry.getBodyText());
+            intent.putExtra("date", event.getEventDateTime());
+            if(milestone != null)
+            {
+                intent.putExtra("milestone", milestone.getDescription());
+            }
+            startActivity(intent);
+
+        }
+
+
+    }
+
+    @Override
+    public void returnMilestone(int milestone) {
+        this.milestone = milestone;
+
+        this.journals = (ArrayList) db.journalEntryDAO().getUsersJournalByMilestoneId(app.getCurrentPatient(), milestone);
+
+        ListView journal_entries = (ListView) findViewById(R.id.lv_journals);
+
+        JournalsAdapter journalsAdapter = new JournalsAdapter(this, this.journals);
+
+        journal_entries.setAdapter(journalsAdapter);
+
+        journal_entries.setOnItemClickListener(this);
+    }
+
+
 
 
     /*@Override

@@ -97,6 +97,8 @@
     <string name="email_hint">Email (yourname@example.com)</string>
     <string name="username_hint">Username (6+ characters)</string>
     <string name="password_hint">Password (6+ characters)</string>
+    <string name="journal_date">Date Entered:</string>
+
     <string-array name="equipmentArr">
 
         <item>A</item>
@@ -130,4 +132,7 @@
         <item>Y</item>
         <item>Z</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
