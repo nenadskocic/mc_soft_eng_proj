@@ -51,6 +51,7 @@
         />
         <activity android:name=".EquipDetailActivity"/>
         <activity android:name=".VideoActivity"/>
+        <activity android:name=".DisplayJournalActivity"/>
     </application>
 
 </manifest>
