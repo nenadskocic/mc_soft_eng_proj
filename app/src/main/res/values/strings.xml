@@ -96,6 +96,8 @@
     <string name="birth_date_title">Birth Date:</string>
     <string name="age_title">Age:</string>
     <string name="enter_new_data">Enter new data</string>
+    <string name="journal_date">Date Entered:</string>
+
     <string-array name="equipmentArr">
 
         <item>A</item>

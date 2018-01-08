@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
         Event event = new Event();
         event.setEventDateTime("2017-12-21 13:14:15");
         event.setEventType("journalEntry");
+        event.setPersonId(1);
         event.setEventChildId(1);
         addEvent(db, event);
 
