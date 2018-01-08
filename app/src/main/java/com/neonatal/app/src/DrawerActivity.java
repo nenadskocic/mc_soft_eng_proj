@@ -74,6 +74,7 @@ public class DrawerActivity extends AppCompatActivity {
                         startActivity(new Intent(DrawerActivity.this, MainMenuActivity.class));
                         break;
                     case 2:
+                        startActivity(new Intent(DrawerActivity.this, VideoActivity.class));
                         break;
                     case 3:
                         Intent intent = new Intent(DrawerActivity.this, DataEntryActivity.class);
@@ -84,19 +85,16 @@ public class DrawerActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 4:
-                        startActivity(new Intent(DrawerActivity.this, CalendarViewActivity.class));
-                        break;
-                    case 5:
                         startActivity(new Intent(DrawerActivity.this, JournalActivity.class));
                         break;
-                    case 6:
+                    case 5:
                         startActivity(new Intent(DrawerActivity.this, EquipmentActivity.class));
+                        break;
+                    case 6:
                         break;
                     case 7:
                         break;
                     case 8:
-                        break;
-                    case 9:
                         startActivity(new Intent(DrawerActivity.this, LoginActivity.class));
                         break;
                     default:
