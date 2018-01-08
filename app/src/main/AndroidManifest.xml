@@ -45,6 +45,7 @@
         <activity android:name=".PatientHistoryActivity" />
         <activity android:name=".DataEntryActivity"/>
         <activity android:name=".PatientMenuActivity"/>
+        <activity android:name=".ReadDataEntryActivity"/>
         <activity android:name=".EquipmentActivity"
             android:configChanges="orientation"
         />

@@ -2,6 +2,7 @@ package com.neonatal.app.src;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.Editable;
@@ -233,6 +234,20 @@ public class DataEntryActivity extends DrawerActivity {
             event.setEventChildId((int)ids[i]);
             db.eventDAO().insertAll(event);
         }
+
+        Dictionary<Integer, String> datas = getData();
+        Enumeration<Integer> keyEnumeration = datas.keys();
+        ArrayList<String> data = new ArrayList<>();
+        for(Enumeration e = datas.elements(); e.hasMoreElements();){
+            String test = e.nextElement().toString();
+            data.add(test);
+        }
+        ArrayList<String> textdata = data;
+        Intent intent = new Intent(DataEntryActivity.this, ReadDataEntryActivity.class);
+
+        intent.putExtra("data", data);
+
+        startActivity(intent);
     }
 
     public void upDateData(View view) {
@@ -240,6 +255,7 @@ public class DataEntryActivity extends DrawerActivity {
     }
 
     public void discardData(View view) {
+        this.finish();
     }
 
     private List<DataField> queryDataField(final  AppDatabase db){
@@ -251,6 +267,10 @@ public class DataEntryActivity extends DrawerActivity {
     }
 
     public void retriveData(View view) {
+        getData();
+    }
+
+    public Dictionary<Integer, String> getData(){
         Dictionary<Integer, String> dataDictionary = new Hashtable<>();
         //Patient p = db.patientDAO().getById(app.getCurrentPatient());
         String dateTimestr = editTextDate.getText().toString();
@@ -291,6 +311,8 @@ public class DataEntryActivity extends DrawerActivity {
                 idx++;
             }
         }
+
+        return dataDictionary;
     }
 
 
