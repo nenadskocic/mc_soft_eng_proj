@@ -11,9 +11,7 @@ import com.neonatal.app.src.entity.Person;
 import com.neonatal.app.src.entity.User;
 
 import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
