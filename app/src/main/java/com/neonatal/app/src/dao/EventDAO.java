@@ -36,4 +36,10 @@ public interface EventDAO {
 
     @Delete
     void delete(Event event);
+
+    @Query("SELECT * FROM event where personId = :id AND eventDateTime = :dateTime AND eventType = :type")
+    List<Event> getByPersonIdAndTimeAndType(int id, String dateTime, String type);
+
+    //@Query("SELECT * FROM patient WHERE eventDateTime = :dateTime")
+    //List<Patient> getByUserId(int userId);
 }

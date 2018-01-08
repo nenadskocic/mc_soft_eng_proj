@@ -22,6 +22,9 @@ public interface DataEntryDAO {
     @Insert
     long[] insertAll(DataEntry... dataEntries);
 
+    @Query("SELECT * FROM DATAENTRY WHERE id = :id LIMIT 1")
+    DataEntry getById(int id);
+
     @Update
     void update(DataEntry dataEntry);
 
