@@ -82,7 +82,7 @@ public class JournalActivity extends DrawerActivity implements ListView.OnItemCl
         this.db = AppDatabase.getAppDatabase(getApplicationContext());
 
         this.events = (ArrayList) db.eventDAO().getPatientsEvents(app.getCurrentPatient());
-        ArrayList<Integer>  journalEvents = (ArrayList) db.eventDAO().getPatientsJournalEvents(app.getCurrentPatient(), "journalEntry");
+        ArrayList<Integer>  journalEvents = (ArrayList) db.eventDAO().getPatientsJournalEvents(db.patientDAO().getById(app.getCurrentPatient()).getPersonId(), "JournalEntry");
 
         this.journals = (ArrayList) db.journalEntryDAO().getUsersJournals(journalEvents);
 
@@ -108,7 +108,18 @@ public class JournalActivity extends DrawerActivity implements ListView.OnItemCl
         fbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));;
+                startActivity(new Intent(JournalActivity.this, CreateJournalActivity.class));
+                ArrayList<Integer>  journalEvents = (ArrayList) db.eventDAO().getPatientsJournalEvents(app.getCurrentPatient(), "JournalEntry");
+
+                journals = (ArrayList) db.journalEntryDAO().getUsersJournals(journalEvents);
+
+                ListView journal_entries = (ListView) findViewById(R.id.lv_journals);
+
+                JournalsAdapter journalsAdapter = new JournalsAdapter(getBaseContext(), journals);
+
+                journal_entries.setAdapter(journalsAdapter);
+
+
             }
         });
     }
@@ -116,7 +127,7 @@ public class JournalActivity extends DrawerActivity implements ListView.OnItemCl
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         JournalEntry entry = this.journals.get(position);
-        ArrayList<Event> eventResults = (ArrayList<Event>) db.eventDAO().getEventByChildId(entry.getId(), "journalEntry");
+        ArrayList<Event> eventResults = (ArrayList<Event>) db.eventDAO().getEventByChildId(entry.getId(), "JournalEntry");
         Event event = eventResults.get(0);
         ArrayList<Milestone> milestones;
         Milestone milestone = null;

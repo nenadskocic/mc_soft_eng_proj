@@ -32,14 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         app = ((NeonatalApp) getApplicationContext());
         db = AppDatabase.getAppDatabase(getApplicationContext());
 
-        SharedPreferences startPreference = getSharedPreferences("START_UP", 0);
-
-        if(!startPreference.contains("FIRST_RUN"))
+        if(db.userDAO().getUserByUserName("admin") == null)
         {
             populateWithTestData(db);
-            SharedPreferences.Editor editor = startPreference.edit();
-            editor.putBoolean("FIRST_RUN", true);
-            editor.commit();
         }
 
 
@@ -103,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
         //Event
         Event event = new Event();
         event.setEventDateTime("2017-12-21 13:14:15");
-        event.setEventType("journalEntry");
+        event.setEventType("JournalEntry");
         event.setPersonId(1);
         event.setEventChildId(1);
         addEvent(db, event);
